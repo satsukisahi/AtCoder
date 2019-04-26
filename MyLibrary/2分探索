@@ -20,3 +20,16 @@ else {
     }
 }
 
+//STL
+sort済みの配列、vectorで
+vector<int> a = {1, 4, 4, 7, 7, 8, 8, 11, 13, 19};
+
+key以上の要素の内の一番左側のイテレータを返す
+auto itr = lower_bound(a.begin(),a.end(), 7);
+cout << itr - a.begin() << endl; // 3となる
+
+keyより大きい要素の内の一番左側のイテレータを返す
+auto itr = upper_bound(a.begin(),a.end(), 7);
+cout << itr - a.begin() << endl; // 5となる
+
+差をとれば個数が分かる

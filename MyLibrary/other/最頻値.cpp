@@ -15,12 +15,9 @@ bool compare_by_b(pair<int, int> a, pair<int, int> b) {
 int main(void)
 {
 int n=17;
-int table[n];
+int table[n]={1, 4, 4, 7, 7, 8, 8, 11, 13, 19,7,6,6,5,4,7,9};
 int maxi=0;
-// 入力
-for(int i=0; i<n; i++){
-    cin >> table[i];
-}
+
 //最大値を求める
 for(int i=0; i<n; i++){
     if(maxi<table[i]){maxi=table[i];}
