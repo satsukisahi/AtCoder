@@ -1,0 +1,35 @@
+常にソートされた状態の配列
+set はデータの追加・削除・検索の処理速度が O(log N) 
+データが動的に追加されるときに使う
+そうでないときはvectorでsortしてからlower_boundでよい
+データの重複はできない
+
+宣言
+set<ll> st;
+
+追加
+st.insert(ll);
+返り値はpair<iterator, bool>
+auto r = st.insert(2);
+r.secondで追加ができたかのboolを取得
+
+削除
+auto c = st.erase(ll);
+行われたらtrue
+
+全表示
+for(auto itr = st.begin(); itr != st.end(); ++itr) {
+    std::cout << *itr << "\n";      // イテレータの指す先のデータを表示
+}
+
+検索
+find(値) は、引数で指定された値を検索し、それへのイテレータを返す。 
+値が順序付集合に含まれない場合は end() を返す。
+set<int> st{3, 1, 4};
+auto itr = st.find(4);   //  要素 4 を検索
+
+count(値) は、順序付集合に含まれる指定値の数を返す。set は重複を許さないので、0 または 1 を返す。 
+st.count(2)　要素 2 の個数（0）を表示
+
+サイズ
+st.size();

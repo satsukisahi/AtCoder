@@ -22,3 +22,9 @@ stoll();
 
 stringの部分文字列
 str(str, 開始位置 最初が0, 取り出す長さ);
+
+//右詰め左詰めゼロ埋め
+std::cout << std::right << std::setw(4) <<  12; // "  12"
+std::cout << std::left << std::setw(4) <<  12; // "12  "
+std::cout << std::setfill('0') << std::right << std::setw(4) << 12; // "0012"
+std::cout << std::setfill('0') << std::left  << std::setw(4) << 12; // "1200"
