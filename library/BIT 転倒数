@@ -1,0 +1,36 @@
+class BIT
+{
+public:
+    vector<int> bit;
+    int M;
+
+    BIT(int M):
+        bit(vector<int>(M+1, 0)), M(M) {}
+
+    int sum(int i) {
+        if (!i) return 0;
+        return bit[i] + sum(i-(i&-i));
+    }
+
+    void add(int i, int x) {
+        if (i > M) return;
+        bit[i] += x;
+        add(i+(i&-i), x);
+    }
+};
+
+1-indexed
+宣言
+BIT b(n);
+追加
+b.add(index,value);
+初項からの和
+b.sum(index);
+
+転倒数を求める例
+BIT b(16);
+ll tab[5]={5,4,3,2,1};
+rep(i,5){
+    b.add(tab[i],1);
+    ans+=i+1-b.sum(tab[i]);
+}

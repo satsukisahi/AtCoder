@@ -1,0 +1,57 @@
+宣言
+pair<ll, ll> p[n];
+もしくは
+vector<pair<int, int> > pairs(n);
+
+参照
+p[i].first
+p[i].second
+
+first基準にソート
+sort(p,p+n);
+sort(p.begin(),p.end());
+
+比較演算子はfirstが先で同じならsecondを見る
+
+//secondの値を基準にソート
+bool compare_by_b(pair<int, int> a, pair<int, int> b) {
+    if(a.second != b.second){
+        return a.second < b.second;
+    }else{
+        return a.first < b.first;
+    }
+}
+
+vector<pair<int, int> > pairs(n);に対して
+sort(pairs.begin(),pairs.end(), compare_by_b);
+
+
+
+例
+int main(void)
+{
+    int n=6;
+    vector<pair<int, int> > pairs(n);
+
+    // 入力
+    for(int i=0; i<n; i++){
+        int a, b;
+        cin >> a >> b;
+        pairs[i] = make_pair(a, b);
+    }
+
+    // b順にソート
+sort2(pairs,n);
+}
+    return 0;
+}
+
+void sort2(vector<pair<int, int> >& pairs,int n){
+     // b順にソート
+    sort(pairs.begin(),pairs.end(), compare_by_b);
+for(int i=0; i<n; i++){
+    cout << pairs[i].first << " "<<pairs[i].second << endl;
+}
+}
+
+

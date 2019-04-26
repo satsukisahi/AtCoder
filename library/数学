@@ -1,0 +1,105 @@
+// b^nを計算する関数
+    int mypow(int b, int n) {
+        if (n == 0) return 1;
+        if (n == 1) return b;
+        if (n % 2 == 0) {
+            return mypow(b * b, n / 2);
+        } else {
+            return mypow(b, n - 1) * b;
+        }
+    }
+
+//ソート
+    sort(table, table + n, greater<ll>());
+
+//最大公約数
+    __gcd(x,y);
+    //たくさんの時
+    for (int i = 0; i < n-1; ++i) {
+        table[i+1]=__gcd(table[i],table[i+1]);
+    }
+    からの
+    table[n-1]
+
+//素数判定
+    bool prime(int num)
+    {
+        if (num < 2) return false;
+        else if (num == 2) return true;
+        else if (num % 2 == 0) return false; // 偶数はあらかじめ除く
+
+        double sqrtNum = sqrt(num);
+        for (int i = 3; i <= sqrtNum; i += 2)
+        {
+            if (num % i == 0)
+            {
+                // 素数ではない
+                return false;
+            }
+        }
+
+        // 素数である
+        return true;
+    }
+
+//素因数分解 nの素因数を出力
+    int tempsoin=n;
+    vector<int> soin;
+    for(ll j = 2; j <= tempsoin; j++){
+        if(tempsoin%j==0){
+            tempsoin=tempsoin/j;
+            soin.push_back(j);
+            j--;
+        }
+    if(prime(tempsoin)){
+        soin.push_back(tempsoin);
+        break;
+        }
+    }
+
+//約数列挙
+    vector<int> yaku;
+    double sqrtNum = sqrt(m);
+    for (int i = 1; i <= sqrtNum; i++){
+        if(m%i==0){yaku.push_back(i);yaku.push_back(m/i);}
+    }
+    sort(yaku.begin(), yaku.end());
+
+//階乗のリスト（のmod）kaij[n]=n!で取得
+    vector<ll> kaij;
+    kaij.push_back(1);
+    for(ll i = 1; i < 100000; i++){
+        kaij.push_back((kaij[i-1]*i)%1000000007);
+    }
+
+//二項係数mod
+    const int MAX = 510000;
+    const int MOD = 1000000007;
+    long long fac[MAX], finv[MAX], inv[MAX];
+
+    // テーブルを作る前処理
+    void COMinit() {
+        fac[0] = fac[1] = 1;
+        finv[0] = finv[1] = 1;
+        inv[1] = 1;
+        for (int i = 2; i < MAX; i++){
+            fac[i] = fac[i - 1] * i % MOD;
+            inv[i] = MOD - inv[MOD%i] * (MOD / i) % MOD;
+            finv[i] = finv[i - 1] * inv[i] % MOD;
+        }
+    }
+
+    // 二項係数計算
+    long long COM(int n, int k){
+        if (n < k) return 0;
+        if (n < 0 || k < 0) return 0;
+        return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
+    }
+
+    int main() {
+        // 前処理
+        COMinit();
+
+        // 計算例
+        cout << COM(100000, 50000) << endl;
+    }

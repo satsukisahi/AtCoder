@@ -1,0 +1,22 @@
+//upperは常に条件を満たすlowerは常に条件を満たさない
+//条件を満たす最小のindexを返す
+
+int lower=下限のindex,upper=上限のindex;
+int seenow,oklowest;
+bool ok2butan;
+while(true){
+seenow=(lower+upper)/2;
+
+//todo:seenowに対して処理
+//条件を満たすならok2butan=trueにする
+
+if(ok2butan){
+    upper=seenow;
+    if(upper==lower+1){oklowest=seenow;break;}
+    }
+else {
+    lower=seenow;
+    if(upper==lower+1){oklowest=seenow+1;break;}
+    }
+}
+

@@ -1,0 +1,24 @@
+string n;
+
+長さ
+int len=(int)(n.length());
+i文字目
+n[i]='X'
+
+
+数字と文字の混じった入力
+int y,m,d;
+char st,stt;
+cin >> y>> st>> m>> stt>> d;
+
+charの文字数
+strlen( char );
+
+数値から文字列
+to_string(n);
+
+stringからlonglong
+stoll();
+
+stringの部分文字列
+str(str, 開始位置 最初が0, 取り出す長さ);

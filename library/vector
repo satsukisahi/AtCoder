@@ -1,0 +1,27 @@
+vector<ll> hoge;
+
+要素数10、全ての要素の値5 で初期化
+vector<ll> v(10, 5);   
+
+二次元
+vector<vector<ll>> v(n, vector<ll>(m,0) );
+
+v.begin
+v.end
+ソート
+sort(v.begin(), v.end());
+逆ソート
+sort(v.rbegin(), v.rend());
+
+要素数
+v.size()
+末尾追加
+v.push_back(int);
+末尾削除
+v.pop_back();
+要素削除
+v.erase(v.begin() + n);
+範囲削除[n]から[m]
+v.erase(v.begin() + n,v.begin() + m+1);
+要素追加[n]の前に入る
+v.insert(v.begin() + n, s);

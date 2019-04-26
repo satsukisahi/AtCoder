@@ -1,0 +1,36 @@
+mapとはC++標準ライブラリに用意された平衡二分木.
+特徴は要素の要素数に対する対数オーダーでの高速な検索能力と
+内部で要素がソート状態で保持されるというところだろう.
+こと特徴から使い方としては辞書みたいな使い方が多いと思われる.
+高速な要素検索のみが必要でソートされることに関心がない場合はふつうunordered_mapを使い, mapを使わない.
+
+宣言
+map<ll,ll> m{};
+
+追加
+m[ll]=ll;
+ key  value
+keyでソートされる
+
+要素数
+m.size();
+
+検索
+m.at(key); あればvalueを返す　ないと例外になる
+
+auto itr = seqLen.find(key);
+    if (itr != seqLen.end()) {
+        std::cout << "found key." << std::endl;
+    } else {
+        std::cout << "key not flound." << std::endl;
+    }
+
+削除
+m.erase(key); keyを指定
+m.erase(m.begin())); 最初が消える
+m.erase(begin(dic), next(m.begin(), 3)); 範囲指定
+
+列挙
+for (auto i = m.begin(); i != m.end(); ++i) {
+    cout << i->first << " => " << i->second << endl;
+}
