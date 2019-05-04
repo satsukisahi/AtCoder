@@ -1,0 +1,32 @@
+迷路の例abc088-d
+
+const int dx[4] = {0, -1, 1, 0};
+const int dy[4] = {-1, 0, 0, 1};
+
+
+ll bfs(){
+    //vには最短距離を入力していく
+    vector<vector<ll>> v(h, vector<ll>(w,INF) );
+    queue<pair<int, int>> q;
+
+    //スタートは0
+    v[0][0]=0;
+    q.push({0,0});
+    while(!q.empty()){
+        pair<int, int> p = q.front();
+        int x = p.first;
+        int y = p.second;
+        q.pop();
+        rep(i,4){
+            ll nx=x+dx[i];
+            ll ny=y+dy[i];
+            
+            //inareaエリア内かどうか　t[nx][ny]行けるところかどうか
+            if(inarea(nx,ny)&&t[nx][ny]&&v[x][y]+1<v[nx][ny]){
+                v[nx][ny]=v[x][y]+1;
+                q.push({nx,ny});
+            }
+        }
+    }
+    return v[h - 1][w - 1];
+}
