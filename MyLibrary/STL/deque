@@ -1,0 +1,27 @@
+両端キュー
+
+宣言
+deque<int> dq; 
+
+要素数を指定した宣言
+deque<int> data(10, 5);      //  要素数10、全ての要素の値5 で初期化
+
+要素参照
+dq.front()
+dq.back()
+[]でランダムアクセス可能
+
+追加
+push_front()
+push_back()
+
+削除
+pop_front()
+pop_back()
+
+そのほか
+size()
+empty()
+clear()
+
+一応insertで任意の挿入もできる
