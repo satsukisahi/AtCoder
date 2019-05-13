@@ -4,7 +4,7 @@ typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define rep1(i, n) for (ll i = 1; i < (ll)(n); i++)
 const ll mo = 1000000007;
-const ll INF = 1 << 30;
+const ll INF = 9223372036854775807;
 ll ans = 0;
 
 int main()
