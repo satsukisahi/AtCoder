@@ -21,7 +21,7 @@ stringからlonglong
 stoll();
 
 stringの部分文字列
-str(str, 開始位置 最初が0, 取り出す長さ);
+s.substr( 開始位置 最初が0, 取り出す長さ);
 
 //右詰め左詰めゼロ埋め
 std::cout << std::right << std::setw(4) <<  12; // "  12"
