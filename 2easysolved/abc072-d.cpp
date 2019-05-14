@@ -12,11 +12,16 @@ int main()
 ll n;
 cin >> n;
 ll t[n] = {};
+ll a=-10;
 rep(i, n)
 {
     cin >> t[i];
+    t[i]--;
+    if(i==t[i]&&a!=i-1)a=i;
+    else if(i==t[i]&&a==i-1){ans++;a=-10;}
+    else if(a==i-1){ans++;a=-10;}
 }
-
+if(a!=-10)ans++;
 cout << ans << endl;
 return 0;
 }

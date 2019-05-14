@@ -103,3 +103,8 @@
         // 計算例
         cout << COM(100000, 50000) << endl;
     }
+
+//順列
+next_permutation(array, array + r);
+で次の辞書順の配列になる
+ないときはfalseを返す
