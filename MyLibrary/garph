@@ -1,0 +1,8 @@
+隣接リスト
+vector<pair<ll,ll> > G[MAXN];
+G[from].push_back(pair<ll,ll>(to, cost));
+for(ll i = 0; i < V; ++i) {
+    for(ll j = 0; j < (ll)G[i].size(); ++j) {
+        // from `i` to `G[i][j].first` cost `G[i][j].second`
+    }
+}

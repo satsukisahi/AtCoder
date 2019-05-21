@@ -16,7 +16,7 @@ q.back();
 q.pop();
 
 あるかないか
-q.empty()==0or1
+q.empty()==0(なし)or1（ある）
 
 要素数
 q.size();
