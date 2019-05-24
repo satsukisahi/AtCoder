@@ -5,20 +5,22 @@ typedef pair<ll, ll> P;
 #define rep(i, n) for(ll i = 0; i < (ll)(n); i++)
 const ll mo=1000000007;
 ll ans=0;
-ll dp[0][0];
 
-inline int Dice()
-{
-    return rand() % 100 + 1;
-}
 
 int main()
 {
-    int i;
+priority_queue<ll,vector<int>,greater<int>> q;
+ll a[9]={4,5,6,8,2,3,1,9,7};
+rep(i,9){
+    q.push(a[i]);
+}
+rep(i,9){
+    ll a=q.top();
+    q.pop();
+    cout<<a;
+    
 
-    for(i = 0; i < 200; i++)
-        cout <<  Dice() << ' ';
-    cout << flush;
+}
 
-    return 0;
+return 0;
 }
