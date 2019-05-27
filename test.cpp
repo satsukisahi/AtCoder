@@ -17,5 +17,5 @@ int main()
 	itr--;
 	cout<<*itr;
 
-return 0;
+return 0
 }
