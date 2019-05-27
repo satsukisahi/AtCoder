@@ -3,9 +3,9 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "ratio": "cpp",
-        "deque": "cpp",
+        "deque": "plaintext",
         "list": "cpp",
-        "vector": "cpp"
+        "vector": "plaintext"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
