@@ -9,13 +9,14 @@ ll ans = 0;
 
 int main()
 {
-	set<ll> st;
-	st.insert(1);
-	st.insert(10);
-	st.insert(101);
-	auto itr=st.end();
-	itr--;
-	cout<<*itr;
+ll n;
+cin >> n;
+ll t[n-1] = {};
+rep(i, n-1)
+{
+    cin >> t[i];
+}
 
+cout << ans << endl;
 return 0;
 }
