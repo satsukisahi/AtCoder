@@ -3,33 +3,25 @@ using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define rep1(i, n) for (ll i = 1; i < (ll)(n); i++)
-const ll mo = 1000000007;
-const ll INF = 1LL << 60; //MAX 9223372036854775807
-double ans = 0;
-ll dp[30000][101];
-//二項係数mod
-const ll MAX = 510000;
-const ll MOD = 1000000007;
-long long fac[MAX], finv[MAX], inv[MAX];
+double ans = 0,ans2=0;
 
-    // テーブルを作る前処理
-    void COMinit() {
-        fac[0] = fac[1] = 1;
-        finv[0] = finv[1] = 1;
-        inv[1] = 1;
-        for (ll i = 2; i < MAX; i++){
-            fac[i] = fac[i - 1] * i % MOD;
-            inv[i] = MOD - inv[MOD%i] * (MOD / i) % MOD;
-            finv[i] = finv[i - 1] * inv[i] % MOD;
+
+void comb(vector<vector<long long int>> &v)
+{
+    for (int i = 0; i < v.size(); i++)
+    {
+        v[i][0] = 1;
+        v[i][i] = 1;
+    }
+    for (int k = 1; k < v.size(); k++)
+    {
+        for (int j = 1; j < k; j++)
+        {
+            v[k][j] = (v[k - 1][j - 1] + v[k - 1][j]);
         }
     }
+}
 
-    // 二項係数計算
-    long long COM(ll n, ll k){
-        if (n < k) return 0;
-        if (n < 0 || k < 0) return 0;
-        return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
-    }
 int main()
 {
 ll n,a,b;
@@ -44,29 +36,30 @@ rep(i,a){
     ans+=v[n-1-i];
 }
 ans/=a;
-ll con=0;
-ll p,k;
 
-while(true){
-    ll re=v[n-1-con];
-    auto itr1 = lower_bound(v,v+n, re);
-    auto itr2 = upper_bound(v,v+n, re);
-    if(con+itr2 - itr1>=b){
-        p=b-con;
-        k=itr2 - itr1;
-        break;
+
+vector<vector<long long int> > vv(n+1,vector<long long int>(n+1,0));
+comb(vv);
+ll re=v[n-a];
+auto itr1 = lower_bound(v,v+n, re);
+auto itr2 = upper_bound(v,v+n, re);
+ll aaa=itr2-itr1;
+if(v[n-a]==v[n-1]){
+    for(ll i=a;i<min(b+1,aaa+1);i++){
+        ans2+=vv[itr2-itr1][i];
     }
-    con+=itr2 - itr1;
+    cout<<fixed<<setprecision(10)<<ans<<endl;
+    cout <<fixed<<setprecision(0)<< ans2 << endl;
+    return 0;
 }
-ll ans2=0;
-COMinit();
 
-rep1(i,p+1){
-    ans2+=COM(k, i);
-    //cout << COM(k, i) << endl;
-}
+
+
+ll te=v+n-itr2;
+//cout << a-te<<" "<<itr2-itr1 << endl;
+ans2=vv[itr2-itr1][a-te];
 
 cout<<fixed<<setprecision(10)<<ans<<endl;
-cout << ans2 << endl;
+cout <<fixed<<setprecision(0)<< ans2 << endl;
 return 0;
 }

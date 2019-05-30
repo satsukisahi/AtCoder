@@ -2,7 +2,9 @@
     "files.associations": {
         "deque": "plaintext",
         "vector": "plaintext",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "iomanip": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
