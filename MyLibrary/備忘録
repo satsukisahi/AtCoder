@@ -4,6 +4,7 @@
 ans+=値%moは最後にans=ans%moする必要あり
 ans+=値;
 ans%=mo;がいい
+b(mod p)の割り算はb^(p-2)の掛け算　p素数
 
 coutはデフォルトで 「整数部、小数部合わせて6桁」
 cout<<fixed<<setprecision(10)<<ans<<endl;

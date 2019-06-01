@@ -6,3 +6,19 @@ for(ll i = 0; i < V; ++i) {
         // from `i` to `G[i][j].first` cost `G[i][j].second`
     }
 }
+
+多重辺がないならsetでもよい（辺を消去したいときなど）
+
+ll n;
+cin >> n;
+
+set<ll> G[n];
+ll t[n] = {};
+//木なら辺はn-1
+rep(i, n-1)
+{
+    ll a,b;
+    cin >> a>>b;
+    G[a-1].insert(b-1);
+    G[b-1].insert(a-1);
+}

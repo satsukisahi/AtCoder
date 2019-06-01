@@ -1,12 +1,14 @@
 // b^nを計算する関数
-    int mypow(int b, int n) {
-        if (n == 0) return 1;
-        if (n == 1) return b;
-        if (n % 2 == 0) {
-            return mypow(b * b, n / 2);
-        } else {
-            return mypow(b, n - 1) * b;
+    ll mypow(ll a,ll b){
+        ll res=1;
+        a%=mo;
+        while(b){
+            if(b&1)
+                res=res*a%mo;
+            a=a*a%mo;
+            b>>=1;
         }
+        return res;
     }
 
 //ソート

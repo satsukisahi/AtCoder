@@ -7,13 +7,10 @@
       "command": "C:/MinGW/bin/g++.exe",
       "args": [
         "-g",
-        "${file}",
+        "${fileBasename}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}.exe"
+        "${fileBasenameNoExtension}.exe"
       ],
-      "options": {
-        "cwd": "C:/MinGW/bin"
-      },
       "problemMatcher": [
         "$gcc"
       ]
