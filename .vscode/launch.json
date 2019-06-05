@@ -6,7 +6,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "msys64",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
@@ -24,7 +24,7 @@
                     "ignoreFailures": true
                 }
             ],
-            //"preLaunchTask": "build before debug",
+            "preLaunchTask": "build before debug",
         },
 
         {
