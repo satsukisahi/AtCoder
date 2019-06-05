@@ -4,9 +4,10 @@
     {
       "type": "shell",
       "label": "build before debug",
-      "command": "C:/MinGW/bin/g++.exe",
+      "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
       "args": [
         "-g",
+        "-O0",
         "${fileBasename}",
         "-o",
         "${fileBasenameNoExtension}.exe"
