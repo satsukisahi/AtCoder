@@ -3,18 +3,19 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "build before debug",
-      "command": "C:/msys64/mingw64/bin/g++.exe",
+      "label": "gcc build active file",
+      "command": "g++",
       "args": [
         "-g",
         "-O0",
-        "${fileBasename}",
+        "${file}",
         "-o",
-        "${fileBasenameNoExtension}.exe"
+        "${fileDirname}/${fileBasenameNoExtension}"
       ],
-      "problemMatcher": [
-        "$gcc"
-      ]
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }

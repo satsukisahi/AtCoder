@@ -12,11 +12,10 @@ int main()
 ll n;
 cin >> n;
 ll t[n] = {};
-rep(i, n)
-{
+rep(i, n){
     cin >> t[i];
 }
 
-cout << ans << endl;
+cout << t[0] << endl;
 return 0;
 }
