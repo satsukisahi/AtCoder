@@ -5,7 +5,7 @@ int main(){
 
     int a, b;
     std::vector<int> v;
-    a = 10;
+    a = 103;
     std::cin >> b;
     v.push_back(a);
     v.push_back(b);
