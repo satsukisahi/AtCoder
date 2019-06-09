@@ -16,6 +16,6 @@ rep(i, n){
     cin >> t[i];
 }
 
-cout << t[0] << endl;
+cout << ans << endl;
 return 0;
 }
