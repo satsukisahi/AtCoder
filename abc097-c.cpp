@@ -13,9 +13,47 @@ string s;
 cin >> s;
 ll k;
 cin >> k;
+set<string> v;
 
-
-
-cout << ans << endl;
+int len=(int)(s.length());
+char first='z';
+rep(i,len){
+  if(s[i]<first)first=s[i];
+}
+rep(i,len){
+  if(s[i]==first){
+    rep1(j,k+1){
+      v.insert(s.substr(i, j));
+    }
+  }
+}
+char second='z';
+rep(i,len){
+  if(s[i]<second&&s[i]!=first)second=s[i];
+}
+rep(i,len){
+  if(s[i]==second){
+    rep1(j,k+1){
+      v.insert(s.substr(i, j));
+    }
+  }
+}
+char third='z';
+rep(i,len){
+  if(s[i]<third&&s[i]!=first&&s[i]!=second)third=s[i];
+}
+rep(i,len){
+  if(s[i]==third){
+    rep1(j,k+1){
+      v.insert(s.substr(i, j));
+    }
+  }
+}
+auto itr=v.begin();
+rep(i,k-1){
+  
+  itr++;
+}
+cout << *itr << endl;
 return 0;
 }
