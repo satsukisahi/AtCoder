@@ -2,15 +2,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "process",
       "label": "gcc build active file",
-      "command": "g++",
+      "type": "shell",
+      "command": "powershell.exe",
       "args": [
-        "-g",
-        "-O0",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}.exe"
+        "-Command",
+        "C:/msys64/mingw64/bin/g++.exe ${file} -g3 -O0 -o ${workspaceFolder}/.vscode/a.exe",
       ],
       "group": {
         "kind": "build",

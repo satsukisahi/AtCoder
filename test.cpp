@@ -1,18 +1,23 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
+#define rep1(i, n) for (ll i = 1; i < (ll)(n); i++)
+const ll mo = 1000000007;
+const ll INF = 1LL << 60; //MAX 9223372036854775807
+ll ans = 0;
 
-int main(){
-
-    int a, b;
-    std::vector<int> v;
-    a = 103;
-    std::cin >> b;
-    v.push_back(a);
-    v.push_back(b);
-    std::cout << "a=" << a << " b=" << b << std::endl;
-    for (int i = 0; i < 2; i++) {
-        std::cout << v[i] << std::endl;
-    }
-
-    return 0;
+int main()
+{
+ll n;
+cin >> n;
+vector<ll> v;
+ll t[n] = {};
+rep(i, n){
+    cin >> t[i];
+    v.push_back(t[i]);
+}
+v[0]=121;
+cout << ans << endl;
+return 0;
 }
