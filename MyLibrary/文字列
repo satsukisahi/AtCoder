@@ -20,6 +20,9 @@ to_string(n);
 stringからlonglong
 stoll();
 
+1番目から2個の要素を削除(0-indexed)
+s.erase(1, 2);
+
 stringの部分文字列
 s.substr( 開始位置 最初が0, 取り出す長さ);
 

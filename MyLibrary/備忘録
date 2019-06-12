@@ -14,3 +14,5 @@ cout<<fixed<<setprecision(10)<<ans<<endl;
 
 auto itr=stl.end()　は最後の次のポインタなので
 itr--;しないと最後の要素を*itrで取得できない
+
+stringの結合は結構遅い
