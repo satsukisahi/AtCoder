@@ -9,12 +9,30 @@ ll ans = 0;
 
 int main()
 {
-ll n;
-cin >> n;
+ll n,k;
+cin >> n>>k;
 ll t[n] = {};
 rep(i, n){
     cin >> t[i];
 }
+ll tt[n+1] = {};
+tt[0]=0;
+repf(i, 1,n+1){
+    tt[i]=t[i-1]+tt[i-1];
+}
+ll front=1,back=0;
+while(true){
+    if(tt[front]-tt[back]>=k){
+        ans+=n-front+1;
+        back++;
+    } 
+    else {
+        if(front==n)break;
+        front++;
+    }
+}
+
+
 
 cout << ans << endl;
 return 0;

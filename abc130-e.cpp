@@ -9,10 +9,14 @@ ll ans = 0;
 
 int main()
 {
-ll n;
-cin >> n;
-ll t[n] = {};
+ll n,m;
+cin >> n>>m;
+ll s[n] = {};
 rep(i, n){
+    cin >> s[i];
+}
+ll t[m] = {};
+rep(i, m){
     cin >> t[i];
 }
 

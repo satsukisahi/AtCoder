@@ -33,3 +33,7 @@ auto itr = upper_bound(a.begin(),a.end(), 7);
 cout << itr - a.begin() << endl; // 5となる
 
 差をとれば個数が分かる
+
+
+//凸関数の3分探索
+

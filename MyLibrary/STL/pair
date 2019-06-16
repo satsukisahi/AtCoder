@@ -1,7 +1,7 @@
 宣言
 pair<ll, ll> p[n];
 もしくは
-vector<pair<int, int> > p(n);
+vector<pair<ll, ll> > p(n);
 
 追加
 p[i]=make_pair(, );
