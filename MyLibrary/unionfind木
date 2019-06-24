@@ -20,7 +20,7 @@ struct UnionFind {
   }
 };
 
-UnionFind arr(n);で０～n-1バラバラが生成
-arr.findSet(x,y)同じ集合か
-arr.size(x)xが属す要素の個数
-arr.unionSet(x,y)xが属す集合とyが属す集合をマージ
+//UnionFind arr(n);で０～n-1バラバラが生成
+//arr.findSet(x,y)同じ集合か
+//arr.size(x)xが属す要素の個数
+//arr.unionSet(x,y)xが属す集合とyが属す集合をマージ

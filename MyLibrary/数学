@@ -23,6 +23,9 @@
     からの
     table[n-1]
 
+//最小公倍数
+    x*y/__gcd(x,y);
+
 //素数判定
     bool prime(int num)
     {
