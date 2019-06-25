@@ -8,13 +8,18 @@ ll ans = 0;
 
 int main()
 {
-ll n;
+string n;
 cin >> n;
-ll t[n] = {};
-rep(i, n){
-    cin >> t[i];
+int len=(int)(n.length());
+if(n[0]==n[len-1]){
+    if(len%2)cout << "Second" << endl;
+    else cout << "First" << endl;
+}
+else {
+    if(len%2)cout << "First" << endl;
+    else cout << "Second" << endl;
 }
 
-cout << ans << endl;
+
 return 0;
 }

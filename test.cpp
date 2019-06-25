@@ -16,6 +16,5 @@ rep(i, n){
 }
 
 cout << ans << endl;
-ans;
 return 0;
 }

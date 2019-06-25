@@ -8,13 +8,15 @@ ll ans = 0;
 
 int main()
 {
-ll n;
+string n;
 cin >> n;
-ll t[n] = {};
-rep(i, n){
-    cin >> t[i];
+int len=(int)(n.length());
+ll g=0,p=0;
+rep(i,len){
+    if(n[i]=='g')g++;
+    else p++;
 }
 
-cout << ans << endl;
+cout << (g-p)/2 << endl;
 return 0;
 }
