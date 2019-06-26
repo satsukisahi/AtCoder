@@ -8,12 +8,27 @@ ll ans = 0;
 
 int main()
 {
-ll n;
-cin >> n;
+ll n,k;
+cin >> n>>k;
 ll t[n] = {};
 rep(i, n){
     cin >> t[i];
 }
+ll tt[n] = {};
+ll ma=t[n-1];
+rep(i,n){
+    if(ma<t[n-i-1])ma=t[n-i-1];
+    tt[n-i-1]=ma-t[n-i-1];
+}
+ma=0;
+rep(i,n){
+    if(ma<tt[i])ma=tt[i];
+}
+rep(i,n){
+    if(ma==tt[i])ans++;
+}
+
+
 
 cout << ans << endl;
 return 0;
