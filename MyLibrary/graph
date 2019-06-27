@@ -13,7 +13,6 @@ ll n;
 cin >> n;
 
 set<ll> G[n];
-ll t[n] = {};
 //木なら辺はn-1
 rep(i, n-1)
 {

@@ -3,6 +3,10 @@
 const int dx[4] = {0, -1, 1, 0};
 const int dy[4] = {-1, 0, 0, 1};
 
+bool inarea(ll x,ll y){
+    return x >= 0 && y >= 0 && x < h && y < w ;
+}
+
 
 ll bfs(){
     //vには最短距離を入力していく
