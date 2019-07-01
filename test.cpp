@@ -5,27 +5,16 @@ typedef long long ll;
 const ll mo = 1000000007;
 const ll INF = 1LL << 60; //MAX 9223372036854775807
 ll ans = 0;
-struct name
-{
-    ll x,y,cost;
-};
 
-bool cmp(const name &a, const name &b)
-{
-    return a.x == b.x ? a.y < b.y : a.x < b.x;
-}
 int main()
 {
 ll n;
 cin >> n;
-name t[n] = {};
+ll t[n] = {};
 rep(i, n){
-    cin >> t[i].x>>t[i].y;
+    cin >> t[i];
 }
-sort(t,t+n,cmp);
 
-rep(i, n){
-    cout << t[i].x<<t[i].y << endl;
-}
+cout << ans << endl;
 return 0;
 }
