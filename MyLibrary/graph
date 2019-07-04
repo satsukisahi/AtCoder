@@ -1,17 +1,54 @@
-隣接リスト
-vector<pair<ll,ll> > G[MAXN];
-G[from].push_back(pair<ll,ll>(to, cost));
-for(ll i = 0; i < V; ++i) {
+//隣接行列
+ll edge[n][n]={}
+rep(i, m)
+{
+    ll a,b,c;
+    cin >> a>>b>>c;
+    edge[a-1][b-1]=c;
+    edge[b-1][a-1]=c; //無向辺
+}
+
+//隣接リスト
+//重み付き
+struct edge {
+    ll to;
+    ll cost;
+    edge() {}
+    edge(ll to, ll cost) : to(to), cost(cost) {};
+};
+
+ll n,m;
+cin >> n >> m ;
+vector<edge> G[n];
+rep(i, m)
+{
+    ll a,b,c;
+    cin >> a>>b>>c;
+    G[a-1].emplace_back(b-1, c);
+    G[b-1].emplace_back(a-1, c); //無向辺
+}
+
+//辺列挙
+for(ll i = 0; i < n; ++i) {
     for(ll j = 0; j < (ll)G[i].size(); ++j) {
-        // from `i` to `G[i][j].first` cost `G[i][j].second`
+        cout << "from" << i << "to" << G[i][j].to << "cost" << G[i][j].cost << endl;
     }
 }
 
-多重辺がないならsetでもよい（辺を消去したいときなど）
+//重みなし
+ll n,m;
+cin >> n >> m ;
 
-ll n;
-cin >> n;
+vector<ll> G[n];
+rep(i, m)
+{
+    ll a,b;
+    cin >> a>>b;
+    G[a-1].push_back(b-1);
+    G[b-1].push_back(a-1); //無向辺
+}
 
+//多重辺がないならsetでもよい（辺を消去したいときなど）
 set<ll> G[n];
 //木なら辺はn-1
 rep(i, n-1)
@@ -19,5 +56,5 @@ rep(i, n-1)
     ll a,b;
     cin >> a>>b;
     G[a-1].insert(b-1);
-    G[b-1].insert(a-1);
+    G[b-1].insert(a-1);　//無向辺
 }
