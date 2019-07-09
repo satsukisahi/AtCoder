@@ -14,7 +14,15 @@ ll t[n] = {};
 rep(i, n){
     cin >> t[i];
 }
+deque<ll> q;
+rep(i,n){
+    q.push_back(t[i]);
+}
+rep(i,n){
+    ll p=q.back();
+    q.pop_back();
+    cout << p << endl;
 
-cout << ans << endl;
+}
 return 0;
 }

@@ -17,3 +17,6 @@ auto itr=stl.end()　は最後の次のポインタなので
 itr--;しないと最後の要素を*itrで取得できない
 
 stringの結合は結構遅い
+
+doubleの指数表記　max 1.797693e+308 min 2.225074e-308>0 有効数字15ケタ
+double eps = 1e-10;
