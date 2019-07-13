@@ -29,3 +29,18 @@ while (!q.empty()){
         }
     }
 }
+
+//木dfs
+void dfs(ll x, vector<vector<edge>> &g, bool *see)
+{
+    //点xに対する処理
+    see[x] = 1;
+    for (auto p : g[x])
+    {
+        if (see[p.to])
+            continue;
+        //進む辺に対する処理
+        dfs(p.to, g, see);
+        //戻る辺に対する処理
+    }
+}

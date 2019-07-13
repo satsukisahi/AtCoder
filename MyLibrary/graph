@@ -19,7 +19,7 @@ struct edge {
 
 ll n,m;
 cin >> n >> m ;
-vector<edge> G[n];
+vector<vector<edge>> g(n);
 rep(i, m)
 {
     ll a,b,c;
@@ -39,7 +39,7 @@ for(ll i = 0; i < n; ++i) {
 ll n,m;
 cin >> n >> m ;
 
-vector<ll> G[n];
+vector<vector<ll>> g(n);
 rep(i, m)
 {
     ll a,b;
