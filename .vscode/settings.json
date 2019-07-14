@@ -12,5 +12,4 @@
         "string_view": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
-    "cquery.cacheDirectory": "${workspaceFolder}/.vscode/cquery_cached_index/"
 }
