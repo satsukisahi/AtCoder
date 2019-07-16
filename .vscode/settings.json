@@ -6,7 +6,10 @@
         "ostream": "cpp",
         "istream": "cpp",
         "cmath": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp",
+        "string_view": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Enabled"
+    "C_Cpp.errorSquiggles": "Enabled",
 }

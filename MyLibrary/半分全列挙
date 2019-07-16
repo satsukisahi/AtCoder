@@ -1,0 +1,42 @@
+//2^(n/2)*log(2^(n/2))くらい
+//ナップザック問題でfirstが重さ　secondが価値
+vector<pair<ll,ll>> v1;
+vector<pair<ll,ll>> v2;
+
+rep(i,1<<(n/2)){
+    pair<ll,ll> p;
+    rep(j,n/2){
+        if(i>>j&1){
+            p.first+=t[j].first;
+            p.second+=t[j].second;
+        }
+    }
+    v1.push_back(p);
+}
+rep(i,1<<(n-n/2)){
+    pair<ll,ll> p;
+    rep(j,n-n/2){
+        if(i>>j&1){
+            p.first+=t[n/2+j].first;
+            p.second+=t[n/2+j].second;
+        }
+    }
+    v2.push_back(p);
+}
+
+//重さでソートして価値をこれまでも含めた最大値に書き換える
+sort(v1.begin(),v1.end());
+ll v1mx=0;
+rep(i,v1.size()){
+    v1mx=max(v1mx,v1[i].second);
+    v1[i].second=max(v1mx,v1[i].second);
+}
+//重さがw-v2[i].firstを超えない最大値を見つけて価値を参照する
+rep(i,v2.size()){
+    if(v2[i].first>w)continue;
+    pair<ll,ll> pp={w-v2[i].first,INF};
+    auto itr=upper_bound(v1.begin(),v1.end(), pp);
+    itr--;
+    pair<ll,ll> p=*itr;
+    ans=max(ans,p.second+v2[i].second);
+}
