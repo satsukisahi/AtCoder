@@ -56,5 +56,5 @@ rep(i, n-1)
     ll a,b;
     cin >> a>>b;
     G[a-1].insert(b-1);
-    G[b-1].insert(a-1);　//無向辺
+    G[b-1].insert(a-1);//無向辺
 }
