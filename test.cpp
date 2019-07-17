@@ -8,12 +8,13 @@ ll ans = 0;
 
 int main()
 {
-    ll a=1;
-rep(i,15){
-    cout << a << endl;
-    a=a^(i+2);
+ll n;
+cin >> n;
+ll t[n] = {};
+rep(i, n){
+    cin >> t[i];
 }
 
-cout << INF << endl;
+cout << (1LL << 63) << endl;
 return 0;
 }

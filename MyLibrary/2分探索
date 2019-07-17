@@ -1,8 +1,8 @@
 //upperは常に条件を満たすlowerは常に条件を満たさない
 //条件を満たす最小のindexを返す
 
-int lower=下限のindex,upper=上限のindex;
-int seenow,oklowest;
+ll lower=下限のindex,upper=上限のindex;
+ll seenow;
 bool ok2butan;
 while(true){
 seenow=(lower+upper)/2;
@@ -12,17 +12,17 @@ seenow=(lower+upper)/2;
 
 if(ok2butan){
     upper=seenow;
-    if(upper==lower+1){oklowest=seenow;break;}
+    if(upper==lower+1){ans=seenow;break;}
     }
 else {
     lower=seenow;
-    if(upper==lower+1){oklowest=seenow+1;break;}
+    if(upper==lower+1){ans=seenow+1;break;}
     }
 }
 
 //STL
 sort済みの配列、vectorで
-vector<int> a = {1, 4, 4, 7, 7, 8, 8, 11, 13, 19};
+vector<ll> a = {1, 4, 4, 7, 7, 8, 8, 11, 13, 19};
 
 key以上の要素の内の一番左側のイテレータを返す
 auto itr = lower_bound(a.begin(),a.end(), 7);
