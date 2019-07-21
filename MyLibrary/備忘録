@@ -22,9 +22,14 @@ doubleの指数表記　max 1.797693e+308 min 2.225074e-308>0 有効数字15ケ�
 double eps = 1e-10;
 
 引数
-//定義                 呼び出し 関数定義
+//定義                 引数      関数定義
 ll x                   ,  x   ,ll x
 ll x[n]                ,  x   ,ll *x
 vector<ll> x[n]        ,  x   ,vector<ll> *x
 vector<ll> x           ,  x   ,vector<ll>& x
 vector<vector<edge>> x ,  x   ,vector<vector<edge>>& x
+
+
+__builtin_popcountll　立ってるビット数を数えて返す
+__builtin_ffsll　2進で表した場合に小さい方から何桁目に初めて1が現れるか
+__builtin_clzll　2進で表した場合に左側にいくつ0を埋める必要があるか
