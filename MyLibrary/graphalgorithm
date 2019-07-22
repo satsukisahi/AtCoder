@@ -1,7 +1,8 @@
 //warshallfloyd
 //隣接行列
-int v;         //頂点数
-int d[v][v]; //d[u][v]はuからvへコスト　存在しないとINF、d[i][i]=0
+ll v;         //頂点数
+vector<vector<ll>> d(n, vector<ll>(n,INF) ); //d[u][v]はuからvへコスト　存在しないとINF、d[i][i]=0
+rep(i,n){d[i][i]=0;}
 
 void warshallfloyd()
 {

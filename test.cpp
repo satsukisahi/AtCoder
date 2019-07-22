@@ -8,13 +8,8 @@ ll ans = 0;
 
 int main()
 {
-ll n;
-cin >> n;
-ll t[n] = {};
-rep(i, n){
-    cin >> t[i];
-}
 
-cout << ans << endl;
+
+cout << __builtin_clzll(9) << endl;
 return 0;
 }
