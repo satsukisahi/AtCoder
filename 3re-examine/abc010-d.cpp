@@ -1,52 +1,11 @@
-//warshallfloyd
-//隣接行列
-ll v;         //頂点数
-vector<vector<ll>> d(n, vector<ll>(n,INF) ); //d[u][v]はuからvへコスト　存在しないとINF、d[i][i]=0
-rep(i,n){d[i][i]=0;}
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
+const ll mo = 1000000007;
+const ll INF = 1LL << 59; //MAX 9223372036854775807
+ll ans = 0;
 
-void warshallfloyd()
-{
-    for (int k = 0; k < v; k++)
-        for (int i = 0; i < v; i++)
-            for (int j = 0; j < v; j++)
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
-}
-
-//Dijkstra
-//pair.first=距離,pair.second=点
-priority_queue< pair<ll,ll>, vector<pair<ll,ll>>, greater<pair<ll,ll>> > q;
-vector<ll> dist(n, INF);
-q.push({0,初期位置});
-
-while (!q.empty()){
-    pair<ll,ll> p=q.top();q.pop();
-    ll v=p.second; //見る点
-    if(dist[v]<p.first)continue; //その点が現状の最短より長いなら終了
-    rep(i,G[v].size()){
-        edge e=G[v][i];
-        if(dist[e.to]>dist[v]+e.cost){
-            dist[e.to]=dist[v]+e.cost;
-            q.push({dist[e.to],e.to});
-        }
-    }
-}
-
-//木dfs
-void dfs(ll x, vector<vector<edge>> &g, bool *see)
-{
-    //点xに対する処理
-    see[x] = 1;
-    for (auto p : g[x])
-    {
-        if (see[p.to])
-            continue;
-        //進む辺に対する処理
-        dfs(p.to, g, see);
-        //戻る辺に対する処理
-    }
-}
-
-//最大流フローFord-Fulkerson
 template <typename flow_t>
 struct FordFulkerson
 {
@@ -121,6 +80,23 @@ struct FordFulkerson
     }
 };
 
-//宣言 FordFulkerson< int > G(V);
-//追加 G.add_edge(from,to,cap);
-//結果 int ans = G.max_flow(to,from);
+int main()
+{
+ll n,g,e;
+cin >> n>>g>>e;
+ll p[g] = {};
+FordFulkerson< int > G(n+1);
+rep(i, g){
+    cin >> p[i];
+    G.add_edge(p[i],n,1);
+}
+rep(i,e){
+    ll a,b;
+    cin >> a >> b ;
+    G.add_edge(a,b,1);
+    G.add_edge(b,a,1);
+}
+
+cout << G.max_flow(0,n) << endl;
+return 0;
+}

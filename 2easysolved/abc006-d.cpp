@@ -20,10 +20,6 @@ rep(i,n){
     *itr=t[i];
 }
 ll a=lower_bound(v.begin(),v.end(), INF-1)-v.begin();
-
-for (int i = 0; i < a; ++i) {
-    cout << v[i] << " ";
-}cout  << endl;
-
+cout << n-a << endl;
 return 0;
 }
