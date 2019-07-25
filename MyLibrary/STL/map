@@ -17,6 +17,7 @@ m.size();
 
 検索
 m.at(key); あればvalueを返す　ないと例外になる
+auto itr=m.find(key); なければm.end()になる　あればitr->secondでvalue
 
 auto itr = seqLen.find(key);
     if (itr != seqLen.end()) {
