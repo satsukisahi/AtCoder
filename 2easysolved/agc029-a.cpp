@@ -8,8 +8,16 @@ ll ans = 0;
 
 int main()
 {
-ll n , k ;
-cin >> n >> k ;
+string s;
+cin >> s;
+int len=(int)(s.length());
+ll w=0;
+rep(i,len){
+    if(s[i]=='W'){
+        ans+=i-w;
+        w++;
+    }
+}
 
 cout << ans << endl;
 return 0;

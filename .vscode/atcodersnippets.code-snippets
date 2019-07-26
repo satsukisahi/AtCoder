@@ -20,6 +20,22 @@
 		"body": [
 			"$1.begin(),$1.end()$2"
 		],
-		"description": "Log output to console"
+		"description": "STL ALL"
+	},
+	"input1": {
+		"prefix": "input",
+		"body": [
+			"ll $1 ;",
+			"cin >> $1 ;"
+		],
+		"description": "input 1 value"
+	},
+	"input2": {
+		"prefix": "input",
+		"body": [
+			"ll $1 , $2 ;",
+			"cin >> $1 >> $2 ;"
+		],
+		"description": "input 2 values"
 	}
 }
