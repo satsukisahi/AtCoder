@@ -8,12 +8,10 @@ ll ans = 0;
 
 int main()
 {
-ll n;
-cin >> n;
-ll t[n] = {};
-rep(i, n){
-    cin >> t[i];
-}
+ll k,x,y;
+cin >> k >>x>>y;
+
+
 
 cout << ans << endl;
 return 0;
