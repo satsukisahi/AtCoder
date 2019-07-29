@@ -15,15 +15,8 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"STL ALL": {
-		"prefix": "all",
-		"body": [
-			"$1.begin(),$1.end()$2"
-		],
-		"description": "STL ALL"
-	},
 	"input1": {
-		"prefix": "input",
+		"prefix": "cin",
 		"body": [
 			"ll $1 ;",
 			"cin >> $1 ;"
@@ -31,11 +24,61 @@
 		"description": "input 1 value"
 	},
 	"input2": {
-		"prefix": "input",
+		"prefix": "cin",
 		"body": [
 			"ll $1 , $2 ;",
 			"cin >> $1 >> $2 ;"
 		],
 		"description": "input 2 values"
-	}
+	},
+	"input3": {
+		"prefix": "cin",
+		"body": [
+			"ll $1 , $2 , $3 ;",
+			"cin >> $1 >> $2 >> $3 ;"
+		],
+		"description": "input 3 values"
+	},
+	"input array": {
+		"prefix": "cin",
+		"body": [
+			"vector<ll> $1(${2:n});",
+			"rep(i, ${2:n}){",
+				"\tcin >> $1[i];",
+			"}"
+		],
+		"description": "input array"
+	},
+	"output": {
+		"prefix": "cout",
+		"body": [
+			"cout << $1 << endl;"
+		],
+		"description": "output 1 value"
+	},
+
+
+	"mod": {
+		"prefix": "mod",
+		"body": [
+			"const ll mo = ${1:1000000007};"
+		],
+		"description": "mod"
+	},
+	"INF": {
+		"prefix": "inf",
+		"body": [
+			"const ll INF = 1LL << 60; //MAX 9223372036854775807"
+		],
+		"description": "INF"
+	},
+
+	
+	"STL ALL": {
+		"prefix": "all",
+		"body": [
+			"$1.begin(),$1.end()$2"
+		],
+		"description": "STL ALL"
+	},
 }
