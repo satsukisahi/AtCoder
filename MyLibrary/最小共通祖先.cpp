@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
+
 template <typename G>
 struct LCA
 {
@@ -61,6 +66,32 @@ struct LCA
         return table[0][u];
     }
 };
+struct edge {
+    ll to;
+    ll cost;
+    edge() {}
+    edge(ll to, ll cost) : to(to), cost(cost) {};
+};
 
-LCA<vector<vector<edge>>> lca(g);
+int main()
+{
+ll n,m,x,y;
+cin >> n >> m ;
+vector<vector<edge>> G(n);
+rep(i, m)
+{
+    ll a,b,c;
+    cin >> a>>b>>c;
+    G[a-1].emplace_back(b-1, c);
+    G[b-1].emplace_back(a-1, c); //無向辺
+}
+//構築
+LCA<vector<vector<edge>>> lca(G);
 lca.build();
+lca.query(x,y);
+lca.len[x];//根までの距離
+lca.dep[x];//深さ
+
+
+return 0;
+}

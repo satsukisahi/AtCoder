@@ -2,11 +2,8 @@
 using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
-const ll mo = 1000000007;
-const ll INF = 1LL << 59; //MAX 9223372036854775807
-ll ans = 0;
 
-
+//再帰を含みたいとき
 template <typename F>
 class
 #if defined(__has_cpp_attribute) && __has_cpp_attribute(nodiscard)
@@ -23,9 +20,7 @@ class
         operator()(Args &&... args) const {
             return F::operator()(*this, std::forward<Args>(args)...);
 }
-}
-; // class FixPoint
-
+};
 template <typename F>
 static inline constexpr decltype(auto)
 makeFixPoint(F &&f) noexcept
@@ -36,15 +31,18 @@ makeFixPoint(F &&f) noexcept
 
 int main()
 {
-ll n;
-cin >> n;
-
-ll a=1;
+//再帰を含みたいとき
 auto fib = makeFixPoint([&](auto f, ll n) -> ll {
-    return n < 2 ? n : (f(n - 1) + f(n - 2)+a);
+    return n < 2 ? n : (f(n - 1) + f(n - 2)+1);
 });
+rep(i, 10)cout<< fib(i + 1) << " ";
+cout << endl;
 
-rep(i, n)
-    cout<< fib(i + 1) << " ";
+
+//それ以外
+ll x=10;
+auto mod = [&](ll y){return x+y;};//&は参照 =はコピー
+cout << mod(6) << endl;
+
 return 0;
 }

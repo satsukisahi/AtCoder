@@ -1,5 +1,4 @@
 大きい配列はグローバル変数にしないと動作しない
-※　static　を前につければ関数内でも動作するがグローバル変数扱いになる
 
 非負整数はXORとANDに関して半環
 
@@ -33,4 +32,19 @@ vector<vector<edge>> x ,  x   ,vector<vector<edge>>& x
 
 __builtin_popcountll　立ってるビット数を数えて返す
 __builtin_ffsll　2進で表した場合に小さい方から何桁目に初めて1が現れるか
-__builtin_clzll　2進で表した場合に左側にいくつ0を埋める必要があるか
+__builtin_clzll　2進で表した場合に左側にいくつ0を埋める必要があるかlong longなら64から引けば桁数
+
+and &   or |   xor ^   not ~   左シフト(大きくなる) <<   右シフト >>
+
+bit全探索
+d=個数
+//0から2^d乗まで
+for (ll) bit = 0; bit < (1<<d); ++bit) {
+//各ビットを下から見ていく
+     rep(j,d){
+//jビット目が1なら処理を行う
+        if(bit>>j&1){
+            todo;
+        }
+    }
+}

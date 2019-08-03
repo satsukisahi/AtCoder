@@ -1,0 +1,16 @@
+//エリア内か確認するときなど
+bool inarea(ll x,ll y){
+  return x >= 0 && y >= 0 && x < h && y < w ;
+}
+
+//構造体
+struct name
+{
+  ll x,y,cost;
+};
+//sort用の比較関数　>なら降順 xの昇順で同じときyの昇順
+bool cmp(const name &a, const name &b)
+{
+  if(a.x == b.x) return a.y < b.y;
+  else return a.x < b.x;
+}

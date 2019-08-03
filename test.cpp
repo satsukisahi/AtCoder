@@ -8,6 +8,6 @@ int main()
 {
 
 
-cout <<  64-__builtin_clzll(16) << endl;
+cout << ans << endl;
 return 0;
 }

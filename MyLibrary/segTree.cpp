@@ -1,3 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
+const ll INF = 1LL << 60; //MAX 9223372036854775807
+
+
+
+//演算の定義
+auto query = [](ll x,ll y){return min(x,y);};
+//単位元
+const ll unit=INF;
 struct SegTree
 {
     private:
@@ -5,18 +17,18 @@ struct SegTree
         vector<ll> node;
     public:
         SegTree(vector<ll> v){
-            node.resize((1LL<<64-__builtin_clzll(v.size()))*2-1,INF);//最小値なので残りはINFで埋める
+            node.resize((1LL<<64-__builtin_clzll(v.size()))*2-1,unit);//最小値なので残りはINFで埋める
             n=1LL<<64-__builtin_clzll(v.size());
             for(ll i=0; i<v.size(); i++) node[i+n-1] = v[i];//最下段から構築
-            for(ll i=n-2; i>=0; i--) node[i] = min(node[2*i+1], node[2*i+2]);
+            for(ll i=n-2; i>=0; i--) node[i] = query(node[2*i+1], node[2*i+2]);
         }
 
     void update(ll x, ll val) {
     x += (n - 1);// 最下段index
-    node[x] = val;
+    node[x] = val;//valを加算などするときは+=
     while(x > 0) {
         x = (x - 1) / 2;
-        node[x] = min(node[2*x+1], node[2*x+2]);
+        node[x] = query(node[2*x+1], node[2*x+2]);
     }
     }
 
@@ -25,7 +37,7 @@ struct SegTree
     // 最初に呼び出されたときの対象区間は [0, n)
     if(r < 0) r = n;
     // 要求区間と対象区間が交わらない -> 適当に返す
-    if(r <= a || b <= l) return INF;
+    if(r <= a || b <= l) return unit;
     // 要求区間が対象区間を完全に被覆 -> 対象区間を答えの計算に使う
     if(a <= l && r <= b) return node[k];
     // 要求区間が対象区間の一部を被覆 -> 子について探索を行う
@@ -33,16 +45,23 @@ struct SegTree
     // 新しい対象区間は、現在の対象区間を半分に割ったもの
     ll vl = getmin(a, b, 2*k+1, l, (l+r)/2);
     ll vr = getmin(a, b, 2*k+2, (l+r)/2, r);
-    return min(vl, vr);
+    return query(vl, vr);
     }
 };
-//一般化するなら、初期値を単位元にし、構築、更新、解答を書き換える
 
-
+int main()
+{
 //宣言
 vector<ll> t;
+t={2,5,8,3,6,5};
 SegTree s(t);
-//更新
-s.update(index,val);
+
 //区間クエリ [a,b)
-s.getmin(a,b)
+s.getmin(1,5); //3
+//更新
+s.update(2,1);//index,val
+//区間クエリ [a,b)
+s.getmin(0,4); //1
+
+return 0;
+}
