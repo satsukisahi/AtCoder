@@ -63,12 +63,16 @@
     }
 
 //約数列挙
-    vector<int> yaku;
-    double sqrtNum = sqrt(m);
-    for (int i = 1; i <= sqrtNum; i++){
-        if(m%i==0){yaku.push_back(i);yaku.push_back(m/i);}
+  vector<int> yaku;
+  for (int i = 1; i*i <= k; i++)
+  {
+    if (k % i == 0)
+    {
+      yaku.push_back(i);
+      if(k/i!=i)yaku.push_back(k / i);
     }
-    sort(yaku.begin(), yaku.end());
+  }
+  sort(yaku.begin(), yaku.end());
 
 //階乗のリスト（のmod）kaij[n]=n!で取得
     vector<ll> kaij;
