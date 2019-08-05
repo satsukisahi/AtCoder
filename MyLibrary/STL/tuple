@@ -1,9 +1,0 @@
-宣言
-tuple<ll, ll, ll> data[m];
-代入
-data[i] = make_tuple(a, b, c);
-
-ソートはa基準
-
-取り出し
-tie(x, y, z) = data[i];

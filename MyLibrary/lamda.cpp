@@ -42,7 +42,7 @@ cout << endl;
 //それ以外
 ll x=10;
 auto mod = [&](ll y){return x+y;};//&は参照 =はコピー
-cout << mod(6) << endl;
+cout << mod(6) << endl;//16
 
 return 0;
 }

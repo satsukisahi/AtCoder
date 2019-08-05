@@ -14,22 +14,20 @@ rep(i, n){
 }
 ll c=1;
 while(c<n/2){
-while(1){
-  ll see[n]={};
+  set<ll> see;
   ll temp=0;
-  ll now=0;
-  now+=c;
-  if(see[now]==0&&see[n-now-1]==0){
+  ll now=c;
+  while(see.find(now)==see.end()&&see.find(n-now-1)==see.end()){
     temp+=s[now];
-    temp+=see[n-now-1];
-    see[now]=1;
-    see[n-now-1]=1;
+    temp+=s[n-now-1];
+    see.insert(now);
+    if(see.find(n-now-1)==see.end())see.insert(n-now-1);
+    else break;
     now+=c;
     ans=max(ans,temp);
-    }
-  else break;
-}
-c++;
+    if(n-now-1<c)break;
+  }
+  c++;
 }
 cout << ans << endl;
 return 0;

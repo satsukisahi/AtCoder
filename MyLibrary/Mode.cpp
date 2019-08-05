@@ -16,7 +16,7 @@ for (auto i = m.begin(); i != m.end(); ++i)
 }
 sort(p.rbegin(), p.rend());
 
-//firat-個数 second-値
+//firat-?? second-?
 for (int i = 0; i < p.size(); ++i)
 {
   cout << p[i].first << ' ' << p[i].second << endl;

@@ -2,6 +2,9 @@
 
 非負整数はXORとANDに関して半環
 
+配列逆ソート(降順)
+sort(t, t + n, greater<ll>());
+
 b(mod p)の割り算はb^(p-2)の掛け算　p素数
 負数対応mod処理 auto mod = [](ll modx){modx%=mo;modx+=mo;modx%=mo;return modx;};
 からの n=mod(n);
@@ -35,16 +38,3 @@ __builtin_ffsll　2進で表した場合に小さい方から何桁目に初め�
 __builtin_clzll　2進で表した場合に左側にいくつ0を埋める必要があるかlong longなら64から引けば桁数
 
 and &   or |   xor ^   not ~   左シフト(大きくなる) <<   右シフト >>
-
-bit全探索
-d=個数
-//0から2^d乗まで
-for (ll) bit = 0; bit < (1<<d); ++bit) {
-//各ビットを下から見ていく
-     rep(j,d){
-//jビット目が1なら処理を行う
-        if(bit>>j&1){
-            todo;
-        }
-    }
-}
