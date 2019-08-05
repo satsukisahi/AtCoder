@@ -21,7 +21,6 @@ bool cmp(const point &a, const point &b)
   else return a.x < b.x;
 }
 
-
 //bit全探索
 d=個数
 //0から2^d乗まで
@@ -32,5 +31,20 @@ for (ll) bit = 0; bit < (1<<d); ++bit) {
     if(bit>>j&1){
       todo;
     }
+  }
+}
+
+//木dfs
+void dfs(ll x, vector<vector<edge>> &g, bool *see)
+{
+  //点xに対する処理
+  see[x] = 1;
+  for (auto p : g[x])
+  {
+    if (see[p.to])
+        continue;
+    //進む辺に対する処理
+    dfs(p.to, g, see);
+    //戻る辺に対する処理
   }
 }
