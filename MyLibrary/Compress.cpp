@@ -79,5 +79,17 @@ rep(i,p.size()){
 rep(i,p.size()){
   cout << compy[p[i].y] << " " << p[i].y << endl;
 }
+cout << endl;
+
+//やり方その2
+vector<ll> v={-25,5,5,10,35,-20,10};
+vector<ll> comp=v;//全部突っ込む
+sort(comp.begin(), comp.end());
+comp.erase(unique(comp.begin(), comp.end()), comp.end());//隣接要素を削除した後の末尾イテレータからvの末尾まで削除
+rep(i,v.size()){
+  ll compnum=lower_bound(comp.begin(), comp.end(), v[i]) - comp.begin();//圧縮後の値
+  cout << compnum << " " << comp[compnum] << endl;//圧縮前の値はcomp[val]で取得
+}
+
 return 0;
 }
