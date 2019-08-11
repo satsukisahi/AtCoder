@@ -15,6 +15,9 @@ cout << s[1] << endl;//e
 s.substr(1,2);//el
 //要素削除 1番目から2個の要素を削除
 s.erase(1,2);//hlo
+//文字列ソート
+string ss="hello";
+sort(ss.begin(),ss.end());//ehllo
 
 //数字を文字列に
 string num=to_string(31415);
