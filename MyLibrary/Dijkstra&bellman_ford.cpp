@@ -39,6 +39,29 @@ vector<ll> dijkstra(ll s, vector<vector<edge>> &g)
   }
   return dist;
 }
+vector<ll> bellman_ford(ll s, vector<vector<edge>> &g)
+{
+  //pair.first=距離,pair.second=点
+  vector<ll> dist(g.size(), INF);
+  dist[s] = 0;
+  //頂点数-1回全ての辺を見る操作を繰り返す
+  rep(i,g.size()-1){
+    rep(j,g.size()){
+      if(dist[j]==INF)continue;
+      rep(k,g[j].size()){
+        dist[g[j][k].to]=min(dist[g[j][k].to],dist[j]+g[j][k].cost);
+      }
+    }
+  }
+  //ここで更新があったら負のサイクルがある
+  rep(j,g.size()){
+    if(dist[j]==INF)continue;
+    rep(k,g[j].size()){
+      if(dist[g[j][k].to]>dist[j]+g[j][k].cost) return vector<ll>();
+    }
+  }
+  return dist;
+}
 
 int main()
 {

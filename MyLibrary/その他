@@ -34,7 +34,7 @@ for (ll) bit = 0; bit < (1<<d); ++bit) {
   }
 }
 
-//木dfs
+//グラフdfs
 void dfs(ll x, vector<vector<edge>> &g, bool *see)
 {
   //点xに対する処理
@@ -43,7 +43,7 @@ void dfs(ll x, vector<vector<edge>> &g, bool *see)
   {
     if (see[p.to])
         continue;
-    //進む辺に対する処理
+    //進む辺に対する処理（これは木構造でオイラーツアーするために使う）
     dfs(p.to, g, see);
     //戻る辺に対する処理
   }

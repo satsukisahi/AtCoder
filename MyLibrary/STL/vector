@@ -25,3 +25,7 @@ v.erase(v.begin() + n);
 v.erase(v.begin() + n,v.begin() + m+1);
 要素追加[n]の前に入る
 v.insert(v.begin() + n, s);
+
+最大値
+*max_element(v.begin(),v.end());
+総和

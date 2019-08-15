@@ -16,7 +16,6 @@ rep(i, m)
     edge[b-1][a-1]=c; //無向辺
 }
 
-
 //隣接リスト
 //重み付き
 struct edge {
