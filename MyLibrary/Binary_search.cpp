@@ -24,6 +24,7 @@ while (true)
     ok = true;
   else
     ok = false;
+  //処理ここまで
   if (ok)
   {
     upper = seenow;
