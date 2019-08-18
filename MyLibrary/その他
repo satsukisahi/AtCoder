@@ -47,4 +47,5 @@ void dfs(ll x, vector<vector<edge>> &g, bool *see)
     dfs(p.to, g, see);
     //戻る辺に対する処理
   }
+  //点xの親に戻る時の処理
 }
