@@ -49,3 +49,26 @@ void dfs(ll x, vector<vector<edge>> &g, bool *see)
   }
   //点xの親に戻る時の処理
 }
+//dfsスタックでやるとき
+stack<ll> s;
+bool see[n]={};
+s.push(0);//スタート
+s.push(0);
+while(s.size()!=0){
+  ll now=s.top();
+  s.pop();
+  if(!see[now]){
+    see[now]=1;
+    //訪れた点に対する処理
+    for (auto p : g[now])
+    {
+      if (see[p])
+          continue;
+      s.push(p);
+      s.push(p);
+    }
+  }
+  else{
+    //去る点に対する処理
+  }
+}
