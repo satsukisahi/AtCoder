@@ -87,5 +87,13 @@
 			"$1.begin(),$1.end()$2"
 		],
 		"description": "STL ALL"
+  },
+
+  "2d-vector": {
+		"prefix": "vector2d",
+		"body": [
+			"vector<vector<ll>> ${1:v}(${2:n}, vector<ll>(${3:n},0) );"
+		],
+		"description": "2d-vector"
 	},
 }

@@ -1,7 +1,7 @@
 大きい方が優先
 priority_queue<ll> q;
 小さい方が優先
-priority_queue< int, std::vector<int>, std::greater<int> > q;
+priority_queue< int, vector<int>, greater<int> > q;
 
 
 q.push(val);

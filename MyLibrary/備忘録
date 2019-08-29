@@ -6,8 +6,6 @@
 sort(t, t + n, greater<ll>());
 
 b(mod p)の割り算はb^(p-2)の掛け算　p素数
-負数対応mod処理 auto mod = [](ll modx){modx%=mo;modx+=mo;modx%=mo;return modx;};
-からの n=mod(n);
 
 coutはデフォルトで 「整数部、小数部合わせて6桁」
 cout<<fixed<<setprecision(10)<<ans<<endl;

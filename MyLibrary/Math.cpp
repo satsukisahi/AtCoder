@@ -68,7 +68,7 @@ map<ll,ll> primefactor(ll n){
 vector<ll> factorial(ll n){
   vector<ll> fac;
   fac.push_back(1);
-  for(ll i = 1; i < 100000; i++){
+  for(ll i = 1; i < n+10; i++){
       fac.push_back((fac[i-1]*i)%mo);
   }
   return fac;

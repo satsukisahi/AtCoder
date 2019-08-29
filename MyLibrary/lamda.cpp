@@ -41,8 +41,11 @@ cout << endl;
 
 //それ以外
 ll x=10;
-auto mod = [&](ll y){return x+y;};//&は参照 =はコピー
-cout << mod(6) << endl;//16
+auto test = [&](ll y){return x+y;};//&は参照 =はコピー
+cout << test(6) << endl;//16
+
+//負数対応mod処理 
+auto mod = [](ll modx){modx%=mo;modx+=mo;modx%=mo;return modx;};
 
 return 0;
 }
