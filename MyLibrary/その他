@@ -49,6 +49,7 @@ void dfs(ll x, vector<vector<edge>> &g, bool *see)
   }
   //点xの親に戻る時の処理
 }
+
 //dfsスタックでやるとき
 stack<ll> s;
 bool see[n]={};
