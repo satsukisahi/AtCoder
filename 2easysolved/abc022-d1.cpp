@@ -2,9 +2,9 @@
 using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
-const ll INF = 1LL << 60; //MAX 9223372036854775807
-
+ll ans = 0;
 double pi=3.1415926535897932;
+
 struct point {
     double x,y,val;
     point() {}
@@ -19,7 +19,8 @@ struct vec {
     double size(){return sqrt(x*x+y*y);};
 };
 //xの昇順で同じときyの昇順
-bool cmp(const point &a, const point &b){
+bool cmp(const point &a, const point &b)
+{
   if(a.x == b.x) return a.y < b.y;
   else return a.x < b.x;
 }
@@ -92,40 +93,8 @@ vector<pair<point,point>> convex_diameter(vector<point>& v){
   return res;
 }
 
-
 int main()
 {
-//凸包http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A&lang=jp
-/* {
-  ll n ;
-  cin >> n ;
-  vector<point> v,ans;
-  rep(i,n){
-    double x , y ;
-    cin >> x >> y ;
-    v.push_back({x,y});
-  }
-  ans=convex_hull(v);
-  cout << ans.size() << endl;
-  //以下は下（同じなら左）の点から反時計回りに出力する処理
-  double mi=INF;
-  rep(i,ans.size()){
-    mi=min(mi,ans[i].y);
-  }
-  ll num;
-  rep(i,ans.size()){
-    if(ans[ans.size()-1-i].y==mi){num=i;break;}
-  }
-  if(mi==ans[0].y){
-    cout << ans[0].x <<" " << ans[0].y << endl;
-    rep(i,ans.size()-1)cout << ans[ans.size()-1-i].x <<" " << ans[ans.size()-1-i].y << endl;
-    return 0;
-  }
-  for (ll i = num; i < ans.size(); i++)cout << ans[ans.size()-1-i].x <<" " << ans[ans.size()-1-i].y << endl;
-  rep(i,num)cout << ans[ans.size()-1-i].x <<" " << ans[ans.size()-1-i].y << endl;
-} */
-//凸包後の最遠点対http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B&lang=jp
-/* {
   ll n ;
   cin >> n ;
   vector<point> v;
@@ -134,10 +103,19 @@ int main()
     cin >> x >> y ;
     v.push_back({x,y});
   }
-  auto ans=convex_diameter(v);
+  auto va=convex_hull(v);
+  auto ans=convex_diameter(va);
   auto an=vec(ans[0].first,ans[0].second);
-  cout<<fixed<<setprecision(12)<< an.size() <<endl;
-} */
+  vector<point> vv;
+  rep(i,n){
+    double x , y ;
+    cin >> x >> y ;
+    vv.push_back({x,y});
+  }
+  auto vb=convex_hull(vv);
+  auto anss=convex_diameter(vb);
+  auto ann=vec(anss[0].first,anss[0].second);
+  cout<<fixed<<setprecision(12)<< ann.size()/an.size() <<endl;
 
-return 0;
+  return 0;
 }

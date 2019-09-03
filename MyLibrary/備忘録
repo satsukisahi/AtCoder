@@ -8,7 +8,7 @@ sort(t, t + n, greater<ll>());
 b(mod p)の割り算はb^(p-2)の掛け算　p素数
 
 coutはデフォルトで 「整数部、小数部合わせて6桁」
-cout<<fixed<<setprecision(10)<<ans<<endl;
+cout<<fixed<<setprecision(12)<<ans<<endl;
 とすると小数点10桁で出る
 
 10^9以下の約数最大個数は1344　値は735134400
