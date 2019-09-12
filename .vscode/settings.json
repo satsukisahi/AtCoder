@@ -19,7 +19,10 @@
       "valarray": "cpp",
       "bitset": "cpp",
       "utility": "cpp",
-      "ratio": "cpp"
+      "ratio": "cpp",
+      "random": "cpp",
+      "map": "cpp",
+      "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
 
