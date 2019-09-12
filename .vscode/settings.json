@@ -20,7 +20,9 @@
       "bitset": "cpp",
       "utility": "cpp",
       "ratio": "cpp",
-      "random": "cpp"
+      "random": "cpp",
+      "map": "cpp",
+      "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
 
