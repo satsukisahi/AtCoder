@@ -29,6 +29,7 @@ makeFixPoint(F &&f) noexcept
 }
 
 
+ll mo=11;
 int main()
 {
 //再帰を含みたいとき
@@ -46,6 +47,15 @@ cout << test(6) << endl;//16
 
 //負数対応mod処理 
 auto mod = [](ll modx){modx%=mo;modx+=mo;modx%=mo;return modx;};
+//mod複数掛け算 
+auto modmul = [](auto ... modx) {
+  ll res=1;
+  for (auto modx_ : {modx...}) {
+    res*=modx_;
+    res%=mo;
+  }
+  return res;
+};
 
 return 0;
 }

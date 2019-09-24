@@ -41,6 +41,15 @@
 			"$0"
 		],
 		"description": "input 3 values"
+  },
+	"input4": {
+		"prefix": "cin",
+		"body": [
+			"ll $1 , $2 , $3 , $4 ;",
+			"cin >> $1 >> $2 >> $3 >> $4 ;",
+			"$0"
+		],
+		"description": "input 4 values"
 	},
 	"input array": {
 		"prefix": "cin",
