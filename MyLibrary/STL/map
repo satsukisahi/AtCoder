@@ -9,7 +9,7 @@ map<ll,ll> m{};
 
 追加
 m[ll]=ll;
- key  value
+key  value
 keyでソートされる
 
 要素数
@@ -28,7 +28,7 @@ auto itr = seqLen.find(key);
 
 削除
 m.erase(key); keyを指定
-m.erase(m.begin())); 最初が消える
+m.erase(m.begin()); 最初が消える
 m.erase(begin(dic), next(m.begin(), 3)); 範囲指定
 
 列挙
