@@ -17,7 +17,7 @@ ll mypow(ll a, ll b){
   return res;
 }
 //素数判定
-bool prime(int num){
+bool prime(ll num){
   if (num < 2)
     return false;
   else if (num == 2)
@@ -26,7 +26,7 @@ bool prime(int num){
     return false;
 
   double sqrtNum = sqrt(num);
-  for (int i = 3; i <= sqrtNum; i += 2)
+  for (ll i = 3; i <= sqrtNum; i += 2)
   {
     if (num % i == 0)
     {
@@ -38,7 +38,7 @@ bool prime(int num){
 //約数
 vector<ll> divisor(ll n){
   vector<ll> div;
-  for (int i = 1; i*i <= n; i++)
+  for (ll i = 1; i*i <= n; i++)
   {
     if (n % i == 0)
     {
@@ -53,7 +53,7 @@ vector<ll> divisor(ll n){
 map<ll,ll> primefactor(ll n){
   map<ll,ll> div;
   ll nn=n;
-  for (int i = 2; i*i <= nn; i++)
+  for (ll i = 2; i*i <= nn; i++)
   {
     if (n % i == 0)
     {
@@ -62,6 +62,7 @@ map<ll,ll> primefactor(ll n){
       i--;
     }
   }
+  if(n!=1)div[n]++;
   return div;
 }
 //階乗
@@ -74,21 +75,21 @@ vector<ll> factorial(ll n){
   return fac;
 }
 //二項係数mod
-const int MAX = 510000;
-const int MOD = 1000000007;
+const ll MAX = 510000;
+const ll MOD = 1000000007;
 long long fac[MAX], finv[MAX], inv[MAX];
 void COMinit(){
   fac[0] = fac[1] = 1;
   finv[0] = finv[1] = 1;
   inv[1] = 1;
-  for (int i = 2; i < MAX; i++)
+  for (ll i = 2; i < MAX; i++)
   {
     fac[i] = fac[i - 1] * i % MOD;
     inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
     finv[i] = finv[i - 1] * inv[i] % MOD;
   }
 }
-long long COM(int n, int k){
+long long COM(ll n, ll k){
   if (n < k)
     return 0;
   if (n < 0 || k < 0)
@@ -117,12 +118,12 @@ struct Matrix
     return (A[0].size());
   }
 
-  inline const vector<T> &operator[](int k) const
+  inline const vector<T> &operator[](ll k) const
   {
     return (A.at(k));
   }
 
-  inline vector<T> &operator[](int k)
+  inline vector<T> &operator[](ll k)
   {
     return (A.at(k));
   }
@@ -130,7 +131,7 @@ struct Matrix
   static Matrix I(size_t n)
   {
     Matrix mat(n);
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
       mat[i][i] = 1;
     return (mat);
   }
@@ -139,8 +140,8 @@ struct Matrix
   {
     size_t n = height(), m = width();
     assert(n == B.height() && m == B.width());
-    for (int i = 0; i < n; i++)
-      for (int j = 0; j < m; j++)
+    for (ll i = 0; i < n; i++)
+      for (ll j = 0; j < m; j++)
         (*this)[i][j] += B[i][j];
     return (*this);
   }
@@ -149,8 +150,8 @@ struct Matrix
   {
     size_t n = height(), m = width();
     assert(n == B.height() && m == B.width());
-    for (int i = 0; i < n; i++)
-      for (int j = 0; j < m; j++)
+    for (ll i = 0; i < n; i++)
+      for (ll j = 0; j < m; j++)
         (*this)[i][j] -= B[i][j];
     return (*this);
   }
@@ -160,9 +161,9 @@ struct Matrix
     size_t n = height(), m = B.width(), p = width();
     assert(p == B.height());
     vector<vector<T>> C(n, vector<T>(m, 0));
-    for (int i = 0; i < n; i++)
-      for (int j = 0; j < m; j++)
-        for (int k = 0; k < p; k++)
+    for (ll i = 0; i < n; i++)
+      for (ll j = 0; j < m; j++)
+        for (ll k = 0; k < p; k++)
           C[i][j] = (C[i][j] + (*this)[i][k] * B[k][j]);
     A.swap(C);
     return (*this);
@@ -205,10 +206,10 @@ struct Matrix
   friend ostream &operator<<(ostream &os, Matrix &p)
   {
     size_t n = p.height(), m = p.width();
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
       os << "[";
-      for (int j = 0; j < m; j++)
+      for (ll j = 0; j < m; j++)
       {
         os << p[i][j] << (j + 1 == m ? "]\n" : ",");
       }
@@ -221,10 +222,10 @@ struct Matrix
     Matrix B(*this);
     assert(width() == height());
     T ret = 1;
-    for (int i = 0; i < width(); i++)
+    for (ll i = 0; i < width(); i++)
     {
-      int idx = -1;
-      for (int j = i; j < width(); j++)
+      ll idx = -1;
+      for (ll j = i; j < width(); j++)
       {
         if (B[j][i] != 0)
           idx = j;
@@ -238,14 +239,14 @@ struct Matrix
       }
       ret *= B[i][i];
       T vv = B[i][i];
-      for (int j = 0; j < width(); j++)
+      for (ll j = 0; j < width(); j++)
       {
         B[i][j] /= vv;
       }
-      for (int j = i + 1; j < width(); j++)
+      for (ll j = i + 1; j < width(); j++)
       {
         T a = B[j][i];
-        for (int k = 0; k < width(); k++)
+        for (ll k = 0; k < width(); k++)
         {
           B[j][k] -= B[i][k] * a;
         }

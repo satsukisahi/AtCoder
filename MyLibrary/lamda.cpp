@@ -47,6 +47,9 @@ cout << test(6) << endl;//16
 
 //負数対応mod処理 
 auto mod = [](ll modx){modx%=mo;modx+=mo;modx%=mo;return modx;};
+//次に大きい整数
+auto krag = [](double krx){double eps=1e-6;krx-=eps; if(krx>0)return (ll)krx+1LL;else return (ll)krx;};
+
 //mod複数掛け算 
 auto modmul = [](auto ... modx) {
   ll res=1;
