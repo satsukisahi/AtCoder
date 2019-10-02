@@ -21,7 +21,7 @@ double arg(vec a,vec b){
 
 int main()
 {
-auto krag = [](double krx){double eps=1e-6;krx-=eps; if(krx>0)return (ll)krx+1LL;else return (ll)krx;};
+auto krag = [](double krx){double eps=1e-7;krx-=eps; if(krx>0)return (ll)krx+1LL;else return (ll)krx;};
 ll n ;
 cin >> n ;
 vector<ll> a(n);
