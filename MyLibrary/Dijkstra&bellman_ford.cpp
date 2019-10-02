@@ -86,3 +86,39 @@ for (int i = 0; i < ans.size(); ++i)
 }
 return 0;
 }
+
+//最短の移動経路が何通りかも求めたいとき
+/* vector<ll> dijkstra(ll s, vector<vector<edge>> &g, vector<ll> &num)
+{
+  //pair.first=距離,pair.second=点
+  priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> q;
+  vector<ll> dist(g.size(), INF);
+  dist[s] = 0;
+  num[s] = 1;
+  q.push({0, s});
+
+  while (!q.empty())
+  {
+    pair<ll, ll> p = q.top();
+    q.pop();
+    ll v = p.second;
+    if (dist[v] < p.first)
+      continue;
+    rep(i, g[v].size())
+    {
+      edge e = g[v][i];
+      if (dist[e.to] > dist[v] + e.cost)
+      {
+        dist[e.to] = dist[v] + e.cost;
+        q.push({dist[e.to], e.to});
+        num[e.to] = num[v];
+      }
+      else if (dist[e.to] == dist[v] + e.cost)
+      {
+        num[e.to] += num[v];
+        num[e.to] %= mo;
+      }
+    }
+  }
+  return dist;
+} */
