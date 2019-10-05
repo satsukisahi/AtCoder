@@ -33,5 +33,5 @@ m.erase(begin(dic), next(m.begin(), 3)); 範囲指定
 
 列挙
 for (auto i = m.begin(); i != m.end(); ++i) {
-    cout << i->first << " => " << i->second << endl;
+  cout << i->first << " => " << i->second << endl;
 }
