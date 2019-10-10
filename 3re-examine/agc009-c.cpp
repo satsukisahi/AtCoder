@@ -7,7 +7,7 @@ const ll mo = 1000000007;
 const ll INF = 1LL << 62; //MAX 9223372036854775807
 int main()
 {
-ll n , a , b , sub=0 ,sitr=-1;
+ll n , a , b ;
 cin >> n >> a >> b ;
 if(a>b)swap(a,b);
 vector<ll> s(n+1);
@@ -15,28 +15,36 @@ s[0]=-1LL*INF;
 rep(i, n){
   cin >> s[i+1];
 }
-rep(i,n-2){
-  if(s[i+2]-s[0]<a){
+rep(i,n-1){
+  if(s[i+2]-s[i]<a){
     cout << 0 << endl;
     return 0;
   }
 }
 vector<ll> v(n+1);
-vector<ll> sum(n+1);
-sum[0]=1;sum[1]=2;
+ll sum=1,st=0,en=1;
 v[0]=1;v[1]=1;
-rep(i,n-1){
-  auto itr = lower_bound(s.begin(), s.end(), s[i+1]-b);
-  v[i+2]=sum[itr-s.begin()-1]-sub;
-  sum[i+2]=v[i+2]+sum[i+1];
-  if(v[i+2]<v[i+1]+a)while(1){
-    sitr++;
-    sub+=v[sitr];
-    v[sitr]=0;
-    if(sitr==i)break;
+for(ll i=2;i<=n;i++){
+  while(s[en]<=s[i]-b){
+    sum+=v[en];
+    sum%=mo;
+    en++;
+  }
+  v[i]=sum;
+  if(s[i-1]>s[i]-a){
+    while(1){
+      if(st!=en){
+        sum-=v[st];
+        sum%=mo;
+      }
+      v[st]=0;
+      st++;
+      if(st>en)en++;
+      if(st==i-1)break;
+    }
   }
 }
-for(auto an:v)ans+=an;
+for(auto an:v)ans=(ans+an+mo)%mo;;
 cout << ans << endl;
 return 0;
 }

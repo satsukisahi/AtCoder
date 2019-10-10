@@ -22,7 +22,8 @@
       "ratio": "cpp",
       "random": "cpp",
       "map": "cpp",
-      "set": "cpp"
+      "set": "cpp",
+      "その他": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
 

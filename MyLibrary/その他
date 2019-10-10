@@ -5,25 +5,19 @@ bool inarea(ll x,ll y){
 
 //構造体
 struct point {
-    ll x,y,val;
+    double x,y,val;
     point() {}
     point(ll x, ll y, ll val) : x(x), y(y), val(val) {};
-};
-struct point {
-    ll x,y;
-    point() {}
-    point(ll x, ll y) : x(x), y(y) {};
+    point(ll x, ll y) : x(x), y(y), val(0) {};
 };
 
 //sort用の比較関数　>なら降順 xの昇順で同じときyの昇順
-bool cmp(const point &a, const point &b)
-{
+bool cmp(const point &a, const point &b){
   return a.val > b.val;
 }
 
 //bit全探索
-d=個数
-//0から2^d乗まで
+//d=個数 0から2^d乗まで
 for (ll) bit = 0; bit < (1<<d); ++bit) {
 //各ビットを下から見ていく
   rep(j,d){
@@ -85,10 +79,43 @@ rep(i,19){
   }
 }
 //二分探索 上界か下界かを意識
- for (ll i = 20; i >= 0; i--)
+for (ll i = 20; i >= 0; i--)
 {
   if(0<dub[i][a] && インデックスdub[i][a](つまりa+2^i)が条件を満たすか　){
     ans+=1LL<<i;
     a=dub[i][a];
+  }
+}
+
+//根付き木グラフで葉から見るとき
+vector<vector<ll>> child(n);
+vector<ll> par(n);
+queue<ll> q;
+queue<ll> qq;
+q.push(root);
+par[root]=-1;
+//親の定義と葉を見つける
+while(!q.empty()){
+  ll p=q.front();
+  q.pop();
+  if(g[p].size()==1 && p!=root){qq.push(p);}
+  for(auto r:g[p]){
+    if(r==par[p])continue;
+    par[r]=p;
+    q.push(r);
+  }
+}
+while(!qq.empty()){
+  ll p=qq.front();
+  qq.pop();
+  st[par[p]].push_back();//親に値を追加する
+  //根の時は例外処理
+  if(st[par[p]].size()==g[par[p]].size()){
+    //st[par[p]]に子の値が入ってる
+  }
+  //全ての葉が親に追加し終わった
+  if(st[par[p]].size()==g[par[p]].size()-1 && par[p]!=0){
+    //st[par[p]]に子の値が入ってる
+    qq.push(par[p]);
   }
 }
