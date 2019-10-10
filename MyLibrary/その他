@@ -14,11 +14,11 @@ struct point {
     point() {}
     point(ll x, ll y) : x(x), y(y) {};
 };
+
 //sort用の比較関数　>なら降順 xの昇順で同じときyの昇順
 bool cmp(const point &a, const point &b)
 {
-  if(a.x == b.x) return a.y < b.y;
-  else return a.x < b.x;
+  return a.val > b.val;
 }
 
 //bit全探索
@@ -71,5 +71,24 @@ while(s.size()!=0){
   }
   else{
     //去る点に対する処理
+  }
+}
+
+//ダブリング
+//構築
+vector<vector<ll>> dub(20, vector<ll>(n,0));
+//dub[0][i]にiの次のインデックスを入れる　なければ-1
+rep(i,19){
+  rep(j,n){
+    if(dub[i][j]==-1)dub[i+1][j]=-1;
+    else dub[i+1][j]=dub[i][dub[i][j]];
+  }
+}
+//二分探索 上界か下界かを意識
+ for (ll i = 20; i >= 0; i--)
+{
+  if(0<dub[i][a] && インデックスdub[i][a](つまりa+2^i)が条件を満たすか　){
+    ans+=1LL<<i;
+    a=dub[i][a];
   }
 }
