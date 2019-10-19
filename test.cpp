@@ -6,6 +6,10 @@ ll ans = 0;
 
 int main()
 {
+ll a;
+cin >> a;
+a+=3;
+cout << a*a << endl;
 
 cout << ans << endl;
 return 0;
