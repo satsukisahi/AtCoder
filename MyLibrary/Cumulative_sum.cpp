@@ -12,14 +12,14 @@ ll t[6]={2,5,6,9,8,1};
 ll         l=2,r=4;
 ll n=6;
 //構築
-vector<ll> s;
-s.push_back(0);
+vector<ll> sum;
+sum.push_back(0);
 rep(i,n){
-  s.push_back(t[i]+s[i]);
+  sum.push_back(t[i]+sum[i]);
 }
 //区間和　閉区間lr t[l]～t[r] 0 ≦ l ≦ r ≦ n-1 0-indexed
-ll sum=s[r+1]-s[l];
-cout << sum << endl; // 23
+ll ans=sum[r+1]-sum[l];
+cout << ans << endl; // 23
 }
 
 

@@ -108,14 +108,14 @@ while(!q.empty()){
 while(!qq.empty()){
   ll p=qq.front();
   qq.pop();
-  st[par[p]].push_back();//親に値を追加する
+  child[par[p]].push_back(p);//親に値を追加する
   //根の時は例外処理
-  if(st[par[p]].size()==g[par[p]].size()){
-    //st[par[p]]に子の値が入ってる
+  if(child[par[p]].size()==g[par[p]].size()){
+    //child[par[p]]に子の値が入ってる
   }
   //全ての葉が親に追加し終わった
-  if(st[par[p]].size()==g[par[p]].size()-1 && par[p]!=0){
-    //st[par[p]]に子の値が入ってる
+  if(child[par[p]].size()==g[par[p]].size()-1 && par[p]!=root){
+    //child[par[p]]に子の値が入ってる
     qq.push(par[p]);
   }
 }

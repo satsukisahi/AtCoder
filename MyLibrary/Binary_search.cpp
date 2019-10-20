@@ -6,45 +6,24 @@ ll ans = 0;
 
 int main()
 {
-ll t[10] = {1, 2, 5, 6, 9, 12, 15, 19, 22, 25};
-ll searchnum = 18; //18以上となるindex
-//upperは常に条件を満たすlowerは常に条件を満たさない
-//条件を満たす最小のindexを返す
-ll lower = 0 - 1; //上限のindex
-ll upper = 9;     //上限のindex
-ll seenow;
-bool ok;
-while (true)
-{
-  seenow = (lower + upper) / 2;
-
-  //todo:seenowに対して処理
-  //条件を満たすならok=true;にする 満たさないならok=false;
-  if (t[seenow] >= searchnum)
-    ok = true;
-  else
-    ok = false;
-  //処理ここまで
-  if (ok)
-  {
-    upper = seenow;
-    if (upper == lower + 1)
-    {
-      ans = seenow;
-      break;
+//lower側がtrue judgeがtrueとなる最もupper側のvalを返す
+//lowerboundでもfalseなら-1を返す
+vector<ll> v={4,7,9,10,15,18};
+ll r=11;
+auto judge = [&](ll val){return r>v[val];};
+auto binarysearch = [&](ll lowerbound,ll upperbound){
+  if(!judge(lowerbound))return -1LL;
+  ll lower=lowerbound,upper=upperbound;
+  while(1){
+    if(judge((lower+upper)/2))lower=(lower+upper)/2;
+    else upper=(lower+upper)/2;
+    if(upper-lower<=1){
+      if(judge(upper))return upper;
+      else return lower;
     }
   }
-  else
-  {
-    lower = seenow;
-    if (upper == lower + 1)
-    {
-      ans = seenow + 1;
-      break;
-    }
-  }
-}
-cout << ans << endl; //7
+  };
+cout << binarysearch(0,5) << endl;// 3
 
 //STL
 //sort済みの配列、vectorで
