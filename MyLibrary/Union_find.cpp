@@ -36,14 +36,14 @@ struct UnionFind
 
 int main()
 {
-ll n = 6;
-ll x = 2, y = 3;
+  ll n = 6;
+  ll x = 2, y = 3;
 
-UnionFind arr(n);   //0～n-1バラバラが生成
-arr.size(x);        //xが属す要素の個数
-arr.unionSet(x, y); //xが属す集合とyが属す集合をマージ
-arr.findSet(x, y);  //同じ集合か
-arr.root(x);        //根を返す
+  UnionFind arr(n);   //0～n-1バラバラが生成
+  arr.size(x);        //xが属す要素の個数
+  arr.unionSet(x, y); //xが属す集合とyが属す集合をマージ
+  arr.findSet(x, y);  //同じ集合か
+  arr.root(x);        //根を返す
 
-return 0;
+  return 0;
 }

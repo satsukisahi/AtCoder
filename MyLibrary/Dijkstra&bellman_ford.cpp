@@ -45,19 +45,27 @@ vector<ll> bellman_ford(ll s, vector<vector<edge>> &g)
   vector<ll> dist(g.size(), INF);
   dist[s] = 0;
   //頂点数-1回全ての辺を見る操作を繰り返す
-  rep(i,g.size()-1){
-    rep(j,g.size()){
-      if(dist[j]==INF)continue;
-      rep(k,g[j].size()){
-        dist[g[j][k].to]=min(dist[g[j][k].to],dist[j]+g[j][k].cost);
+  rep(i, g.size() - 1)
+  {
+    rep(j, g.size())
+    {
+      if (dist[j] == INF)
+        continue;
+      rep(k, g[j].size())
+      {
+        dist[g[j][k].to] = min(dist[g[j][k].to], dist[j] + g[j][k].cost);
       }
     }
   }
   //ここで更新があったら負のサイクルがある
-  rep(j,g.size()){
-    if(dist[j]==INF)continue;
-    rep(k,g[j].size()){
-      if(dist[g[j][k].to]>dist[j]+g[j][k].cost) return vector<ll>();
+  rep(j, g.size())
+  {
+    if (dist[j] == INF)
+      continue;
+    rep(k, g[j].size())
+    {
+      if (dist[g[j][k].to] > dist[j] + g[j][k].cost)
+        return vector<ll>();
     }
   }
   return dist;
@@ -65,26 +73,26 @@ vector<ll> bellman_ford(ll s, vector<vector<edge>> &g)
 
 int main()
 {
-ll n, m, r;
-cin >> n >> m >> r; //頂点数,辺数,始点
+  ll n, m, r;
+  cin >> n >> m >> r; //頂点数,辺数,始点
 
-vector<vector<edge>> g(n);
-rep(i, m)
-{
-  ll a, b, c;
-  cin >> a >> b >> c;
-  g[a].emplace_back(b, c);
-}
+  vector<vector<edge>> g(n);
+  rep(i, m)
+  {
+    ll a, b, c;
+    cin >> a >> b >> c;
+    g[a].emplace_back(b, c);
+  }
 
-vector<ll> ans = dijkstra(r, g);
-for (int i = 0; i < ans.size(); ++i)
-{
-  if (ans[i] < INF / 2)
-    cout << ans[i] << endl;
-  else
-    cout << "INF" << endl;
-}
-return 0;
+  vector<ll> ans = dijkstra(r, g);
+  for (int i = 0; i < ans.size(); ++i)
+  {
+    if (ans[i] < INF / 2)
+      cout << ans[i] << endl;
+    else
+      cout << "INF" << endl;
+  }
+  return 0;
 }
 
 //最短の移動経路が何通りかも求めたいとき

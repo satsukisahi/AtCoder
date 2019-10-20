@@ -59,17 +59,17 @@ public:
 
 int main()
 {
-//宣言
-vector<ll> t;
-t = {2, 5, 8, 3, 6, 5};
-SegTree s(t);
+  //宣言
+  vector<ll> t;
+  t = {2, 5, 8, 3, 6, 5};
+  SegTree s(t);
 
-//区間クエリ [a,b)
-s.getmin(1, 5); //3
-//更新
-s.update(2, 1); //index,val
-//区間クエリ [a,b)
-s.getmin(0, 4); //1
+  //区間クエリ [a,b)
+  s.getmin(1, 5); //3
+  //更新
+  s.update(2, 1); //index,val
+  //区間クエリ [a,b)
+  s.getmin(0, 4); //1
 
-return 0;
+  return 0;
 }

@@ -14,16 +14,16 @@ void warshallfloyd(vector<vector<ll>> &d)
 
 int main()
 {
-ll n;                                        //頂点数
-ll m;                                        //辺数
-vector<vector<ll>> d(n, vector<ll>(n, INF)); //d[u][v]はuからvへコスト　存在しないとINF、d[i][i]=0
-rep(i, n) { d[i][i] = 0; }
-rep(i, m)
-{
-  //input
-}
-warshallfloyd(d);
-//rep(i, n) if (d[i][i] < 0){負閉路が存在}
+  ll n;                                        //頂点数
+  ll m;                                        //辺数
+  vector<vector<ll>> d(n, vector<ll>(n, INF)); //d[u][v]はuからvへコスト　存在しないとINF、d[i][i]=0
+  rep(i, n) { d[i][i] = 0; }
+  rep(i, m)
+  {
+    //input
+  }
+  warshallfloyd(d);
+  //rep(i, n) if (d[i][i] < 0){負閉路が存在}
 
-return 0;
+  return 0;
 }

@@ -3,33 +3,41 @@ using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 const ll INF = 1LL << 60; //MAX 9223372036854775807
-
-double pi=3.1415926535897932;
-struct point {
-    double x,y,val;
-    point() {}
-    point(double x, double y, double val) : x(x), y(y), val(val) {};
-    point(double x, double y) : x(x), y(y), val(0) {};
+double pi = 3.1415926535897932;
+struct point
+{
+  double x, y, val;
+  point() {}
+  point(double x, double y, double val) : x(x), y(y), val(val){};
+  point(double x, double y) : x(x), y(y), val(0){};
 };
-struct vec {
-    double x ,y ;
-    vec() {}
-    vec(double x, double y) : x(x), y(y)  {};
-    vec(point a, point b) : x(b.x-a.x), y(b.y-a.y)  {};
-    double size(){return sqrt(x*x+y*y);};
+struct vec
+{
+  double x, y;
+  vec() {}
+  vec(double x, double y) : x(x), y(y){};
+  vec(point a, point b) : x(b.x - a.x), y(b.y - a.y){};
+  double size() { return sqrt(x * x + y * y); };
 };
 //xの昇順で同じときyの昇順
-bool cmp(const point &a, const point &b){
-  if(a.x == b.x) return a.y < b.y;
-  else return a.x < b.x;
+bool cmp(const point &a, const point &b)
+{
+  if (a.x == b.x)
+    return a.y < b.y;
+  else
+    return a.x < b.x;
 }
 //ベクトルabとベクトルbcにおけるbcに対して時計回りの角cba
-double arg(vec a,vec b){
-  if(a.x*b.y-a.y*b.x>0)return acos((-a.x*b.x-a.y*b.y)/(a.size()*b.size()))*(-180)/pi +360;
-  else return acos((-a.x*b.x-a.y*b.y)/(a.size()*b.size()))*180/pi;
+double arg(vec a, vec b)
+{
+  if (a.x * b.y - a.y * b.x > 0)
+    return acos((-a.x * b.x - a.y * b.y) / (a.size() * b.size())) * (-180) / pi + 360;
+  else
+    return acos((-a.x * b.x - a.y * b.y) / (a.size() * b.size())) * 180 / pi;
 }
 //線分abとcdの交差判定
-bool judgeIentersected(point a,point b, point c,point d) {
+bool judgeIentersected(point a, point b, point c, point d)
+{
   double ta = (c.x - d.x) * (a.y - c.y) + (c.y - d.y) * (c.x - a.x);
   double tb = (c.x - d.x) * (b.y - c.y) + (c.y - d.y) * (c.x - b.x);
   double tc = (a.x - b.x) * (c.y - a.y) + (a.y - b.y) * (a.x - c.x);
@@ -38,65 +46,83 @@ bool judgeIentersected(point a,point b, point c,point d) {
   //return tc * td <= 0 && ta * tb <= 0; // 端点を含む場合
 }
 //凸包　左（同じなら下）から時計回りに出力
-vector<point> convex_hull(vector<point>& v){
-  sort(v.begin(),v.end(),cmp);
-  vector<point> res,res2;
-  for(auto p:v){
-    if(res.size()<2)res.push_back(p);
-    else{
-      while(arg(vec(res[res.size()-2],res[res.size()-1]),vec(res[res.size()-1],p))>180.00001&&res.size()>=2)res.pop_back();
+vector<point> convex_hull(vector<point> &v)
+{
+  sort(v.begin(), v.end(), cmp);
+  vector<point> res, res2;
+  for (auto p : v)
+  {
+    if (res.size() < 2)
+      res.push_back(p);
+    else
+    {
+      while (arg(vec(res[res.size() - 2], res[res.size() - 1]), vec(res[res.size() - 1], p)) > 180.00001 && res.size() >= 2)
+        res.pop_back();
       res.push_back(p);
     }
   }
-  for(auto p:v){
-    if(res2.size()<2)res2.push_back(p);
-    else{
-      while(arg(vec(res2[res2.size()-2],res2[res2.size()-1]),vec(res2[res2.size()-1],p))<179.99999&&res2.size()>=2)res2.pop_back();
+  for (auto p : v)
+  {
+    if (res2.size() < 2)
+      res2.push_back(p);
+    else
+    {
+      while (arg(vec(res2[res2.size() - 2], res2[res2.size() - 1]), vec(res2[res2.size() - 1], p)) < 179.99999 && res2.size() >= 2)
+        res2.pop_back();
       res2.push_back(p);
     }
   }
-  rep(i,res2.size()-2){
-    res.push_back(res2[res2.size()-i-2]);
+  rep(i, res2.size() - 2)
+  {
+    res.push_back(res2[res2.size() - i - 2]);
   }
   return res;
 }
 //凸包における最遠点対
-vector<pair<point,point>> convex_diameter(vector<point>& v){
-  ll st=0;
-  double mx=0;
-  vector<pair<point,point>> res;
-  for(ll i=1;i<v.size();i++){
-    auto te=vec(v[st],v[i]);
-    double tesize=te.size();
-    if(tesize>mx){
-      mx=tesize;
+vector<pair<point, point>> convex_diameter(vector<point> &v)
+{
+  ll st = 0;
+  double mx = 0;
+  vector<pair<point, point>> res;
+  for (ll i = 1; i < v.size(); i++)
+  {
+    auto te = vec(v[st], v[i]);
+    double tesize = te.size();
+    if (tesize > mx)
+    {
+      mx = tesize;
       res.clear();
-      res.emplace_back(v[st],v[i]);
+      res.emplace_back(v[st], v[i]);
     }
-    else if(tesize==mx)res.emplace_back(v[st],v[i]);
-    while(i-st>=2){
-      auto te2=vec(v[st+1],v[i]);
-      if(tesize<te2.size()){
-        tesize=te2.size();
+    else if (tesize == mx)
+      res.emplace_back(v[st], v[i]);
+    while (i - st >= 2)
+    {
+      auto te2 = vec(v[st + 1], v[i]);
+      if (tesize < te2.size())
+      {
+        tesize = te2.size();
         st++;
-        if(te2.size()>mx){
-          mx=te2.size();
+        if (te2.size() > mx)
+        {
+          mx = te2.size();
           res.clear();
-          res.emplace_back(v[st],v[i]);
+          res.emplace_back(v[st], v[i]);
         }
-        else if(te2.size()==mx)res.emplace_back(v[st],v[i]);
+        else if (te2.size() == mx)
+          res.emplace_back(v[st], v[i]);
       }
-      else break;
+      else
+        break;
     }
   }
   return res;
 }
 
-
 int main()
 {
-//凸包http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A&lang=jp
-/* {
+  //凸包http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A&lang=jp
+  /* {
   ll n ;
   cin >> n ;
   vector<point> v,ans;
@@ -124,8 +150,8 @@ int main()
   for (ll i = num; i < ans.size(); i++)cout << ans[ans.size()-1-i].x <<" " << ans[ans.size()-1-i].y << endl;
   rep(i,num)cout << ans[ans.size()-1-i].x <<" " << ans[ans.size()-1-i].y << endl;
 } */
-//凸包後の最遠点対http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B&lang=jp
-/* {
+  //凸包後の最遠点対http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B&lang=jp
+  /* {
   ll n ;
   cin >> n ;
   vector<point> v;
@@ -139,5 +165,5 @@ int main()
   cout<<fixed<<setprecision(12)<< an.size() <<endl;
 } */
 
-return 0;
+  return 0;
 }

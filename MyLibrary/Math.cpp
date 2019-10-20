@@ -4,7 +4,8 @@ typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 const ll mo = 1000000007;
 // 累乗a^b
-ll mypow(ll a, ll b){
+ll mypow(ll a, ll b)
+{
   ll res = 1;
   a %= mo;
   while (b)
@@ -17,7 +18,8 @@ ll mypow(ll a, ll b){
   return res;
 }
 //素数判定
-bool prime(ll num){
+bool prime(ll num)
+{
   if (num < 2)
     return false;
   else if (num == 2)
@@ -36,41 +38,47 @@ bool prime(ll num){
   return true;
 }
 //約数
-vector<ll> divisor(ll n){
+vector<ll> divisor(ll n)
+{
   vector<ll> div;
-  for (ll i = 1; i*i <= n; i++)
+  for (ll i = 1; i * i <= n; i++)
   {
     if (n % i == 0)
     {
       div.push_back(i);
-      if(n/i!=i)div.push_back(n / i);
+      if (n / i != i)
+        div.push_back(n / i);
     }
   }
   sort(div.begin(), div.end());
   return div;
 }
 //素因数分解
-map<ll,ll> primefactor(ll n){
-  map<ll,ll> div;
-  ll nn=n;
-  for (ll i = 2; i*i <= nn; i++)
+map<ll, ll> primefactor(ll n)
+{
+  map<ll, ll> div;
+  ll nn = n;
+  for (ll i = 2; i * i <= nn; i++)
   {
     if (n % i == 0)
     {
       div[i]++;
-      n/=i;
+      n /= i;
       i--;
     }
   }
-  if(n!=1)div[n]++;
+  if (n != 1)
+    div[n]++;
   return div;
 }
 //階乗
-vector<ll> factorial(ll n){
+vector<ll> factorial(ll n)
+{
   vector<ll> fac;
   fac.push_back(1);
-  for(ll i = 1; i < n+10; i++){
-      fac.push_back((fac[i-1]*i)%mo);
+  for (ll i = 1; i < n + 10; i++)
+  {
+    fac.push_back((fac[i - 1] * i) % mo);
   }
   return fac;
 }
@@ -78,7 +86,8 @@ vector<ll> factorial(ll n){
 const ll MAX = 510000;
 const ll MOD = 1000000007;
 long long fac[MAX], finv[MAX], inv[MAX];
-void COMinit(){
+void COMinit()
+{
   fac[0] = fac[1] = 1;
   finv[0] = finv[1] = 1;
   inv[1] = 1;
@@ -89,7 +98,8 @@ void COMinit(){
     finv[i] = finv[i - 1] * inv[i] % MOD;
   }
 }
-long long COM(ll n, ll k){
+long long COM(ll n, ll k)
+{
   if (n < k)
     return 0;
   if (n < 0 || k < 0)
@@ -256,48 +266,51 @@ struct Matrix
   }
 };
 
-
 int main()
 {
-ll c;
-//累乗
-mypow(3, 5); //243
+  ll c;
+  //累乗
+  mypow(3, 5); //243
 
-//最大公約数
-__gcd(21, 35); //7
+  //最大公約数
+  __gcd(21, 35); //7
 
+  //素数判定
+  prime(103); //true
+  //約数
+  vector<ll> v = divisor(24); //1,2,3,4,6,8,12,24
 
-//素数判定
-prime(103);//true
-//約数
-vector<ll> v=divisor(24);//1,2,3,4,6,8,12,24
+  //素因数分解 値,個数
+  map<ll, ll> p = primefactor(735134400);
+  for (auto i = p.begin(); i != p.end(); ++i)
+  {
+    cout << "val" << i->first << "count" << i->second << endl;
+  }
 
-//素因数分解 値,個数
-map<ll,ll> p=primefactor(735134400);
-for (auto i = p.begin(); i != p.end(); ++i) {
-  cout << "val" << i->first << "count" << i->second << endl;
-}
+  //階乗
+  vector<ll> fac = factorial(100000);
+  fac[6]; //720
 
-//階乗
-vector<ll> fac=factorial(100000);
-fac[6];//720
+  //二項係数mod
+  COMinit(); //前処理
+  COM(7, 3); //35
 
-//二項係数mod
-COMinit();//前処理
-COM(7, 3);//35
+  //辞書順で次の順列
+  ll array[3] = {2, 1, 3};
+  next_permutation(array, array + 3); //array={2,3,1};
 
-//辞書順で次の順列
-ll array[3]={2,1,3};
-next_permutation(array, array + 3);//array={2,3,1};
+  //行列クラス modや定数倍などは適宜自分で追加
+  Matrix<ll> a(2);
+  a[0][0] = 1;
+  a[0][1] = 2;
+  a[1][0] = 3;
+  a[1][1] = 4;
+  cout << a << endl;
+  Matrix<ll> b(2);
+  b = a + a;
+  cout << b << endl;
+  b = a ^ 2;
+  cout << b << endl;
 
-//行列クラス modや定数倍などは適宜自分で追加
-Matrix<ll> a(2);a[0][0]=1;a[0][1]=2;a[1][0]=3;a[1][1]=4;
-cout << a << endl;
-Matrix<ll> b(2);
-b=a+a;
-cout << b << endl;
-b=a^2;
-cout << b << endl;
-
-return 0;
+  return 0;
 }

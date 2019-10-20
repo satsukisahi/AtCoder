@@ -80,18 +80,19 @@ struct FordFulkerson
 
 int main()
 {
-//宣言 FordFulkerson< ll > g(V);
-//追加 g.add_edge(from,to,cap);
-//結果 ll ans = g.max_flow(to,from);
-ll v , e ;
-cin >> v >> e ;
-FordFulkerson< ll > g(v);
-rep(i,e){
-  ll a , b , c ;
-  cin >> a >> b >> c ;
-  g.add_edge(a,b,c);
-}
+  //宣言 FordFulkerson< ll > g(V);
+  //追加 g.add_edge(from,to,cap);
+  //結果 ll ans = g.max_flow(to,from);
+  ll v, e;
+  cin >> v >> e;
+  FordFulkerson<ll> g(v);
+  rep(i, e)
+  {
+    ll a, b, c;
+    cin >> a >> b >> c;
+    g.add_edge(a, b, c);
+  }
 
-cout << g.max_flow(0,v-1) << endl;
-return 0;
+  cout << g.max_flow(0, v - 1) << endl;
+  return 0;
 }
