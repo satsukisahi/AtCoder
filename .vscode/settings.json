@@ -23,7 +23,8 @@
       "random": "cpp",
       "map": "cpp",
       "set": "cpp",
-      "その他": "cpp"
+      "その他": "cpp",
+      "string": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
 
