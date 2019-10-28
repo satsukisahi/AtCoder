@@ -17,7 +17,7 @@ int main()
     while (1){
       if (judge((lower + upper) / 2)) lower = (lower + upper) / 2;
       else upper = (lower + upper) / 2;
-      if (upper - lower <= 1){
+      if (abs(upper - lower) <= 1){
         if (judge(upper)) return upper;
         else return lower;
       }

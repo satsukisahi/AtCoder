@@ -36,3 +36,7 @@ __builtin_ffsll　2進で表した場合に小さい方から何桁目に初め�
 __builtin_clzll　2進で表した場合に左側にいくつ0を埋める必要があるかlong longなら64から引けば桁数
 
 and &   or |   xor ^   not ~   左シフト(大きくなる) <<   右シフト >>
+
+テストケースファイルからの読み取りは以下を追加
+std::ifstream in("input");
+std::cin.rdbuf(in.rdbuf());
