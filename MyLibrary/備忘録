@@ -40,3 +40,5 @@ and &   or |   xor ^   not ~   左シフト(大きくなる) <<   右シフト >
 テストケースファイルからの読み取りは以下を追加
 std::ifstream in("input");
 std::cin.rdbuf(in.rdbuf());
+
+assert(0);で強制RE
