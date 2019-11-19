@@ -31,6 +31,7 @@ vector<ll> x[n]        ,  x   ,vector<ll> *x
 vector<ll> x           ,  x   ,vector<ll>& x
 vector<vector<edge>> x ,  x   ,vector<vector<edge>>& x
 
+下のは0に対しては不定となるので禁止
 __builtin_popcountll　立ってるビット数を数えて返す
 __builtin_ffsll　2進で表した場合に小さい方から何桁目に初めて1が現れるか
 __builtin_clzll　2進で表した場合に左側にいくつ0を埋める必要があるかlong longなら64から引けば桁数

@@ -29,7 +29,7 @@ for (ll) bit = 0; bit < (1<<d); ++bit) {
 }
 
 //グラフdfs
-void dfs(ll x, vector<vector<edge>> &g, bool *see)
+void dfs(ll x, vector<vector<edge>> &g, vector<bool> &see)
 {
   //点xに対する処理
   see[x] = 1;
