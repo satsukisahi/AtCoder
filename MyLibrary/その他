@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll h,w,n;
+
 //エリア内か確認するときなど
 bool inarea(ll x,ll y){
   return x >= 0 && y >= 0 && x < h && y < w ;
@@ -18,7 +23,7 @@ bool cmp(const point &a, const point &b){
 
 //bit全探索
 //d=個数 0から2^d乗まで
-for (ll) bit = 0; bit < (1<<d); ++bit) {
+for ((ll) bit = 0; bit < (1<<d); ++bit) {
 //各ビットを下から見ていく
   rep(j,d){
 //jビット目が1なら処理を行う
@@ -28,7 +33,7 @@ for (ll) bit = 0; bit < (1<<d); ++bit) {
   }
 }
 
-//グラフdfs
+//グラフDFS
 void dfs(ll x, vector<vector<edge>> &g, vector<bool> &see)
 {
   //点xに対する処理
@@ -44,7 +49,7 @@ void dfs(ll x, vector<vector<edge>> &g, vector<bool> &see)
   //点xの親に戻る時の処理
 }
 
-//dfsスタックでやるとき
+//DFSスタックでやるとき
 stack<ll> s;
 bool see[n]={};
 s.push(0);//スタート
@@ -65,6 +70,24 @@ while(s.size()!=0){
   }
   else{
     //去る点に対する処理
+  }
+}
+
+//グラフBFS root=0
+vector<ll> par(n)
+vector<bool> see(n);
+queue<ll> q;
+par[0]=-1;
+see[0]=1;
+q.push(0);
+while(!q.empty()){
+  auto p=q.front();
+  see[p]=1;
+  q.pop();
+  for(auto r:g[p]){
+    if(see[r]!=0)continue;
+    par[r]=p;
+    q.push(r);
   }
 }
 

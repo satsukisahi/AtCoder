@@ -30,7 +30,7 @@ int main()
 {
   string s = "abbabbababbabc";
   string t = "abbab";
-  //vはある位置から何文字銭湯と一致しているかを返す
+  //vはある位置から何文字先頭と一致しているかを返す
   // a b b a b | a b b a b b a b a b b a b c
   //20 0 0 2 0 0 5 0 0 5 0 0 2 0 5 0 0 2 0 0
   vector<int> v = z_algorithm(t + '|' + s);
