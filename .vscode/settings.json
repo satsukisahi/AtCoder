@@ -77,5 +77,6 @@
       "variant": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
+    "python.pythonPath": "C:\\Users\\sahika\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
 
 }
