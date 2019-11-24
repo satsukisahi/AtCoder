@@ -1,7 +1,7 @@
 大きい方が優先
 priority_queue<ll> q;
 小さい方が優先
-priority_queue< int, vector<int>, greater<int> > q;
+priority_queue< ll, vector<ll>, greater<ll> > q;
 
 
 q.push(val);
@@ -13,5 +13,5 @@ q.size();
 要素AとBに対して、Aが偶数でBが奇数なら、AはBより優先度が低い。
 要素AとBに対して、AとBの両方が偶数なら、値が大きい方が優先度が低い。
 要素AとBに対して、AとBの両方が奇数なら、値が小さい方が優先度が低い。
-auto c = [](int l, int r) { if (l % 2 == 0) return r % 2 != 0 || l >= r; else return r % 2 != 0 && l < r; };
-std::priority_queue<int, std::vector<int>, decltype(c)> q(c);
+auto c = [](ll l, ll r) { if (l % 2 == 0) return r % 2 != 0 || l >= r; else return r % 2 != 0 && l < r; };
+priority_queue<ll, vector<ll>, decltype(c)> q(c);

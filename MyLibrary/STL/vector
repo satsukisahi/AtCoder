@@ -29,3 +29,4 @@ v.insert(v.begin() + n, s);
 最大値
 *max_element(v.begin(),v.end());
 総和
+accumulate(v.begin(), v.end(), 0) //第三引数の型になる

@@ -13,7 +13,7 @@ q.push({0,0});
 先頭要素
 pair<int, int> p = q.front();
 
-末尾
+末尾も一応アクセスできる
 q.back();
 
 先頭削除
