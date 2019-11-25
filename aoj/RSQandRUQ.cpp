@@ -3,7 +3,8 @@ using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 const ll INF = 1LL << 60; //MAX 9223372036854775807
-
+//https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_I
+//区間変更、区間和
 //子から親を求める演算
 auto calc_parent = [](ll x, ll y) { return x+y; };
 //親遅延配列を子に伝播する演算

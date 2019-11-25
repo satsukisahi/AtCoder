@@ -3,6 +3,7 @@ using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 const ll INF = 1LL << 60; //MAX 9223372036854775807
+//http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A&lang=jp
 
 //演算の定義
 auto query = [](ll x, ll y) { return min(x, y); };
@@ -59,7 +60,6 @@ public:
 
 int main()
 {
-//http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A&lang=jp
 ll n , q ;
 cin >> n >> q ;
 
