@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
-ll ans = 0;
 
 int main()
 {
@@ -25,6 +24,39 @@ int main()
   };
   cout << binarysearch(0, 5) << endl; // 3
 
+  //doubleのバージョン　x^2-2=0の解(0<x)を求める
+  auto judge_d = [&](double val) { return val*val-2<0; };
+  auto binarysearch_d = [&](double lowerbound, double upperbound) {
+    if (!judge_d(lowerbound)) return -1.0;
+    double lower = lowerbound, upper = upperbound;
+    while (1){
+      if (judge_d((lower + upper) / 2)) lower = (lower + upper) / 2;
+      else upper = (lower + upper) / 2;
+      if (fabs(upper - lower) <= 0.000001){
+        return upper;
+      }
+    }
+  };
+  cout << binarysearch_d(0, 100000) << endl; // 1.41421
+
+  //下に凸関数の三分探索　(x^2-2x-2の最小値-3(x=1)を求める)
+  auto judge_f = [&](double val) { return val*val-2*val-2; };
+  auto binarysearch_f = [&](double lowerbound, double upperbound) {
+    if (!judge_d(lowerbound)) return -1.0;
+    double lower = lowerbound, upper = upperbound;
+    while (1){
+      double x1=(upper-lower)  /3+lower;
+      double x2=(upper-lower)*2/3+lower;
+      if(judge_f(x1)>judge_f(x2))lower=x1;
+      else upper=x2;
+      if (fabs(upper - lower) <= 0.000001){
+        return upper;
+      }
+    }
+  };
+  double ans=binarysearch_f(0, 100000);
+  cout << ans << ' ' << judge_f(ans) << endl; // 1 -3
+
   //STL
   //sort済みの配列、vectorで
   vector<ll> a = {1, 4, 4, 7, 7, 8, 8, 11, 13, 19};
@@ -46,22 +78,3 @@ int main()
   cout << upper_bound(a.begin(), a.end(), count) - lower_bound(a.begin(), a.end(), count) << endl; //2
   return 0;
 }
-
-/*
-凸関数の3分探索
-下に凸で最小値を求める場合
-double lower=0,upper=1000000000;
-double x1,x2;
-
-while(true){
-  x1=(upper-lower)/3+lower;
-  x2=(upper-lower)*2/3+lower;
-  if(x1での値>x2での値)lower=x1;
-  else upper=x2;
-
-  if(x2-x1<0.00000000001){
-    ans=(x1+x2)/2;
-    break;
-  }
-}
-*/
