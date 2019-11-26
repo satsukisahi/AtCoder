@@ -82,7 +82,7 @@ int main()
 {
   //宣言 FordFulkerson< ll > g(V);
   //追加 g.add_edge(from,to,cap);
-  //結果 ll ans = g.max_flow(to,from);
+  //結果 g.max_flow(to,from);
   ll v, e;
   cin >> v >> e;
   FordFulkerson<ll> g(v);
