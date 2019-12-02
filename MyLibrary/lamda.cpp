@@ -57,6 +57,8 @@ int main()
     {
       res *= modx_;
       res %= mo;
+      res += mo;
+      res %= mo;
     }
     return res;
   };
