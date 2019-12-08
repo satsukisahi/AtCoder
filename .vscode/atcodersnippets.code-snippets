@@ -75,7 +75,8 @@
 	"mod": {
 		"prefix": "mod",
 		"body": [
-			"const ll mo = ${1:1000000007};",
+      "const ll mo = ${1:1000000007};",
+      "auto mod = [](ll modx) {modx%=mo;modx+=mo;modx%=mo;return modx; };",
 			"$0"
 		],
 		"description": "mod"

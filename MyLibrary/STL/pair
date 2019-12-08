@@ -18,7 +18,7 @@ sort(p.begin(),p.end());
 比較演算子はfirstが先で同じならsecondを見る
 
 //secondの値を基準にソート
-bool compare_by_b(pair<int, int> a, pair<int, int> b) {
+bool compare_by_b(pair<ll, ll> a, pair<ll, ll> b) {
     if(a.second != b.second){
         return a.second < b.second;
     }else{
@@ -26,20 +26,20 @@ bool compare_by_b(pair<int, int> a, pair<int, int> b) {
     }
 }
 
-vector<pair<int, int> > pairs(n);に対して
+vector<pair<ll, ll> > pairs(n);に対して
 sort(pairs.begin(),pairs.end(), compare_by_b);
 
 
 
 例
-int main(void)
+ll main(void)
 {
-    int n=6;
-    vector<pair<int, int> > pairs(n);
+    ll n=6;
+    vector<pair<ll, ll> > pairs(n);
 
     // 入力
-    for(int i=0; i<n; i++){
-        int a, b;
+    for(ll i=0; i<n; i++){
+        ll a, b;
         cin >> a >> b;
         pairs[i] = make_pair(a, b);
     }
@@ -50,10 +50,10 @@ sort2(pairs,n);
     return 0;
 }
 
-void sort2(vector<pair<int, int> >& pairs,int n){
+void sort2(vector<pair<ll, ll> >& pairs,ll n){
      // b順にソート
     sort(pairs.begin(),pairs.end(), compare_by_b);
-for(int i=0; i<n; i++){
+for(ll i=0; i<n; i++){
     cout << pairs[i].first << " "<<pairs[i].second << endl;
 }
 }

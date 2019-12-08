@@ -2,6 +2,7 @@
 using namespace std;
 typedef long long ll;
 ll h,w,n;
+vector<ll> v;
 
 //エリア内か確認するときなど
 bool inarea(ll x,ll y){
@@ -19,6 +20,14 @@ struct point {
 //sort用の比較関数　>なら降順 xの昇順で同じときyの昇順
 bool cmp(const point &a, const point &b){
   return a.val > b.val;
+}
+
+//区間[s,t]の和集合（整数の数）をとる vector<pair<ll,ll>> の要素がs,t
+sort(v.begin(),v.end());
+ll p=-INF;
+for(auto r:v){
+  ans+=max(0LL,(rr.second+1-max(p,rr.first));
+  p=max(p,rr.second+1);
 }
 
 //bit全探索
