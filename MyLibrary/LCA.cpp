@@ -29,9 +29,9 @@ struct LCA
     }
   }
 
-  void build()
+  void build(ll roo)
   {
-    dfs(0, -1, 0, 0);
+    dfs(roo, -1, 0, 0);
     for (ll k = 0; k + 1 < LOG; k++)
     {
       for (ll i = 0; i < table[k].size(); i++)
@@ -88,7 +88,8 @@ int main()
   }
   //構築
   LCA<vector<vector<edge>>> lca(G);
-  lca.build();
+  ll roo=0;
+  lca.build(roo);
   lca.query(x, y);
   lca.len[x]; //根までの距離
   lca.dep[x]; //深さ

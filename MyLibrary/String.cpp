@@ -22,6 +22,10 @@ int main()
   string num = to_string(31415);
   //stringを数字に
   ll num2 = stoll(num);
+  //小文字をすべて大文字に
+  transform(s.begin(), s.end(), s.begin(), ::toupper);
+  //大文字をすべて小文字に
+  transform(s.begin(), s.end(), s.begin(), ::tolower);
   //右詰め左詰めゼロ埋め
   std::cout << std::right << std::setw(4) << 12 << endl;                      // "  12"
   std::cout << std::left << std::setw(4) << 12 << endl;                       // "12  "
