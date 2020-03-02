@@ -42,7 +42,7 @@ int main()
   //下に凸関数の三分探索　(x^2-2x-2の最小値-3(x=1)を求める)
   auto judge_f = [&](double val) { return val*val-2*val-2; };
   auto binarysearch_f = [&](double lowerbound, double upperbound) {
-    if (!judge_d(lowerbound)) return -1.0;
+    if (!judge_f(lowerbound)) return -1.0;
     double lower = lowerbound, upper = upperbound;
     while (1){
       double x1=(upper-lower)  /3+lower;

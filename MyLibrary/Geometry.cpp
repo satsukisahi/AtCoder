@@ -27,6 +27,23 @@ bool cmp(const point &a, const point &b)
   else
     return a.x < b.x;
 }
+//2円の交点　同じ円は除く
+vector<point> circle_intersection(point c1,double r1,point c2,double r2){
+  vector<point> res;
+  if(r1+r2==vec(c1,c2).size()||fabs(r1-r2)==vec(c1,c2).size()){
+    point p(vec(c1,c2).x*r1/vec(c1,c2).size()+c1.x,vec(c1,c2).y*r1/vec(c1,c2).size()+c1.y);
+    res.push_back(p);
+  }
+  else if(r1+r2>vec(c1,c2).size()&&fabs(r1-r2)<vec(c1,c2).size()){
+    double di=vec(c1,c2).size()*vec(c1,c2).size();
+    double li=(di+r1*r1-r2*r2)/2;
+    point p1(c1.x+(li*(-c1.x+c2.x)+(-c1.y+c2.y)*sqrt(di*r1*r1-li*li))/di,c1.y+(li*(-c1.y+c2.y)-(-c1.x+c2.x)*sqrt(di*r1*r1-li*li))/di);
+    res.push_back(p1);
+    point p2(c1.x+(li*(-c1.x+c2.x)-(-c1.y+c2.y)*sqrt(di*r1*r1-li*li))/di,c1.y+(li*(-c1.y+c2.y)+(-c1.x+c2.x)*sqrt(di*r1*r1-li*li))/di);
+    res.push_back(p2);
+  }
+  return res;
+}
 //ベクトルabとベクトルbcにおけるbcに対して時計回りの角cba
 double arg(vec a, vec b)
 {

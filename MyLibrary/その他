@@ -83,7 +83,7 @@ while(s.size()!=0){
 }
 
 //グラフBFS root=0
-vector<ll> par(n)
+vector<ll> par(n);
 vector<bool> see(n);
 queue<ll> q;
 par[0]=-1;

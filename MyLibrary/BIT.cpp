@@ -42,5 +42,13 @@ int main()
     //閉区間[0,k]の合計を求める
     ans += i + 1 - bit.sum(tab[i]);
   }
+  //たくさん貼る
+/* 
+  vector<BinaryIndexedTree<ll>> v;
+  rep(i,26){
+    BinaryIndexedTree<ll> bit(n);
+    v.push_back(bit);
+  }
+   */
   return 0;
 }

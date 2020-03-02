@@ -3,7 +3,7 @@
 
 
 宣言
-queue<pair<int, int>> q;
+queue<pair<ll, ll>> q;
 
 
 追加
@@ -11,7 +11,7 @@ q.push({0,0});
 
 
 先頭要素
-pair<int, int> p = q.front();
+pair<ll, ll> p = q.front();
 
 末尾も一応アクセスできる
 q.back();

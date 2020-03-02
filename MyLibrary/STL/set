@@ -6,7 +6,6 @@ set はデータの追加・削除・検索の処理速度が O(log N)
 
 宣言
 set<ll> st;
-
 追加
 st.insert(ll);
 返り値はpair<iterator, bool>
@@ -34,6 +33,9 @@ st.count(2)　要素 2 の個数（0）を表示
 サイズ
 st.size();
 
+以上、または、より大きいイテレータを返す
+auto itr=s.lower_bound();
+auto itr=s.upper_bound();
 
 重複を許す場合は
 multiset<ll> m;
