@@ -27,6 +27,19 @@ bool cmp(const point &a, const point &b)
   else
     return a.x < b.x;
 }
+//3点が一直線上にあるとtrue
+bool threepoint(point a,point b,point c){
+  return (b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x)==0;
+}
+//先に一直線上にないか確認
+point threepoint_circle(point a,point b,point c){
+  point p;
+  double k=((c.x-a.x)*(c.x-b.x)+(c.y-a.y)*(c.y-b.y))/((b.y-a.y)*(c.x-a.x)-(b.x-a.x)*(c.y-a.y));
+  p.x=(a.x+b.x+k*(b.y-a.y))/2;
+  p.y=(a.y+b.y-k*(b.x-a.x))/2;
+  p.val=sqrt(p.x*p.x+p.y*p.y-a.x*b.x-a.y*b.y-k*a.x*(b.y-a.y)+k*a.y*(b.x-a.x));
+  return p;
+}
 //2円の交点　同じ円は除く
 vector<point> circle_intersection(point c1,double r1,point c2,double r2){
   vector<point> res;
