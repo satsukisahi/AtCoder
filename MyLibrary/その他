@@ -71,8 +71,8 @@ while(s.size()!=0){
     //訪れた点に対する処理
     for (auto p : g[now])
     {
-      if (see[p])
-          continue;
+      if (see[p])continue;
+      see[p]=1;
       s.push(p);
       s.push(p);
     }
@@ -91,11 +91,11 @@ see[0]=1;
 q.push(0);
 while(!q.empty()){
   auto p=q.front();
-  see[p]=1;
   q.pop();
   for(auto r:g[p]){
     if(see[r]!=0)continue;
     par[r]=p;
+    see[r]=1;
     q.push(r);
   }
 }

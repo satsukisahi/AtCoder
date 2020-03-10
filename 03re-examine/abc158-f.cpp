@@ -2,12 +2,13 @@
 using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
+const ll mo = 998244353;
 const ll INF = 1LL << 60; //MAX 9223372036854775807
-
+auto mod = [](ll modx) {modx%=mo;modx+=mo;modx%=mo;return modx; };
 //演算の定義
-auto query = [](ll x, ll y) { return min(x, y); };
+auto query = [](ll x, ll y) { return max(x, y); };
 //単位元
-const ll unit = INF;
+const ll unit =-INF;
 struct SegTree
 {
   private:
@@ -56,20 +57,30 @@ struct SegTree
       return query(vl, vr);
     }
 };
-
 int main()
 {
-  //宣言
-  vector<ll> t;
-  t = {2, 5, 8, 3, 6, 5};
-  SegTree s(t);
-
-  //区間クエリ [a,b)
-  s.getmin(1, 5); //3
-  //更新
-  s.update(2, 1); //index,val
-  //区間クエリ [a,b)
-  s.getmin(0, 4); //1
-
-  return 0;
+ll n ;
+cin >> n ;
+vector<pair<ll,ll>> v(n);
+vector<ll> dp(n+1);
+dp[n]=1;
+rep(i,n){
+  cin >> v[i].first >> v[i].second;
+}
+sort(v.begin(),v.end());
+vector<ll> t(n,-INF);
+t[n-1]=v[n-1].first +v[n-1].second;
+SegTree s(t);
+rep(i,n){
+  dp[n-i-1]=dp[n-i];
+  auto itr1 = lower_bound(v.begin(), v.end(), make_pair(v[n-i-1].first +v[n-1-i].second,0LL));
+  ll u=itr1-v.begin();
+  ll mx=max(v[n-i-1].first +v[n-1-i].second,s.getmin(0, u));
+  s.update(n-i-1, mx);
+  pair<ll,ll> p={mx ,0};
+  auto itr = lower_bound(v.begin(), v.end(), p);
+  dp[n-i-1]=mod(dp[n-i-1]+dp[itr-v.begin()]);
+}
+cout << dp[0] << endl;
+return 0;
 }

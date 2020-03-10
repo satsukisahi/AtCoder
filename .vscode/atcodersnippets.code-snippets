@@ -98,13 +98,37 @@
 		],
 		"description": "STL ALL"
   },
+	"STL sort": {
+		"prefix": "sort",
+		"body": [
+      "sort($1.begin(),$1.end()$2);"
+      "$0"
+		],
+		"description": "STL ALL"
+  },
 
   "2d-vector": {
-		"prefix": "vector2d",
+		"prefix": "vec2d",
 		"body": [
       "vector<vector<ll>> ${1:v}(${2:n}, vector<ll>(${3:n},0) );",
       "$0"
 		],
 		"description": "2d-vector"
+  },
+  "vector": {
+		"prefix": "vec",
+		"body": [
+      "vector<ll> ${1:v}(${2:n},${3:0});",
+      "$0"
+		],
+		"description": "vector"
+  },
+  "vector_pair": {
+		"prefix": "vecp",
+		"body": [
+      "vector<pair<ll,ll>> ${1:v}(${2:n});",
+      "$0"
+		],
+		"description": "vector pair"
 	},
 }
