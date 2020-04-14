@@ -39,6 +39,8 @@ vector<ll> dijkstra(ll s, vector<vector<edge>> &g)
   }
   return dist;
 }
+
+//負のサイクル検出はある一つの経路に必ず存在するとは限らない
 vector<ll> bellman_ford(ll s, vector<vector<edge>> &g)
 {
   //pair.first=距離,pair.second=点
