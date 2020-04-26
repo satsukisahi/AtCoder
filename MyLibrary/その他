@@ -13,11 +13,11 @@ bool inarea(ll x,ll y){
 struct point {
     double x,y,val;
     point() {}
-    point(ll x, ll y, ll val) : x(x), y(y), val(val) {};
-    point(ll x, ll y) : x(x), y(y), val(0) {};
+    point(double x, double y, double val) : x(x), y(y), val(val) {};
+    point(double x, double y) : x(x), y(y), val(0) {};
 };
 
-//sort用の比較関数　>なら降順 xの昇順で同じときyの昇順
+//sort用の比較関数　>なら降順 
 bool cmp(const point &a, const point &b){
   return a.val > b.val;
 }
@@ -49,8 +49,7 @@ void dfs(ll x, vector<vector<edge>> &g, vector<bool> &see)
   see[x] = 1;
   for (auto p : g[x])
   {
-    if (see[p.to])
-        continue;
+    if (see[p.to])continue;
     //進む辺に対する処理（これは木構造でオイラーツアーするために使う）
     dfs(p.to, g, see);
     //戻る辺に対する処理
@@ -124,6 +123,7 @@ vector<vector<ll>> child(n);
 vector<ll> par(n);
 queue<ll> q;
 queue<ll> qq;
+ll root=0;
 q.push(root);
 par[root]=-1;
 //親の定義と葉を見つける

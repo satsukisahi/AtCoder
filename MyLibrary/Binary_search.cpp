@@ -7,22 +7,25 @@ int main()
 {
   //lower側がtrue judgeがtrueとなる最もupper側のvalを返す
   //lowerboundでもfalseなら-1を返す
-  vector<ll> v = {4, 7, 9, 10, 15, 18};
-  ll r = 11;
-  auto judge = [&](ll val) { return r > v[val]; };
-  auto binarysearch = [&](ll lowerbound, ll upperbound) {
-    if (!judge(lowerbound)) return -1LL;
-    ll lower = lowerbound, upper = upperbound;
-    while (1){
-      if (judge((lower + upper) / 2)) lower = (lower + upper) / 2;
-      else upper = (lower + upper) / 2;
-      if (abs(upper - lower) <= 1){
-        if (judge(upper)) return upper;
-        else return lower;
-      }
+vector<ll> v = {4, 7, 9, 10, 15, 18};
+ll r = 11;
+auto judge = [&](ll val) {
+  
+  return r > v[val];
+};
+auto binarysearch = [&](ll lowerbound, ll upperbound) {
+  if (!judge(lowerbound)) return -1LL;
+  ll lower = lowerbound, upper = upperbound;
+  while (1){
+    if (judge((lower + upper) / 2)) lower = (lower + upper) / 2;
+    else upper = (lower + upper) / 2;
+    if (abs(upper - lower) <= 1){
+      if (judge(upper)) return upper;
+      else return lower;
     }
-  };
-  cout << binarysearch(0, 5) << endl; // 3
+  }
+};
+cout << binarysearch(0, 1LL<<60) << endl; // 3
 
   //doubleのバージョン　x^2-2=0の解(0<x)を求める
   auto judge_d = [&](double val) { return val*val-2<0; };

@@ -56,7 +56,7 @@
 		"description": "input array"
 	},
 	"output": {
-		"prefix": "cout",
+		"prefix": "cou",
 		"body": [
 			"cout << $1 << endl;",
 			"$0"
@@ -101,7 +101,7 @@
   },
 
   "2d-vector": {
-		"prefix": "vec2d",
+		"prefix": "vec2",
 		"body": [
       "vector<vector<ll>> ${1:v}(${2:n}, vector<ll>(${3:n},0) );",
       "$0"
