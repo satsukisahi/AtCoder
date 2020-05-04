@@ -17,9 +17,9 @@ struct point {
     point(double x, double y) : x(x), y(y), val(0) {};
 };
 
-//sort用の比較関数　>なら降順 
+//sort用の比較関数　
 bool cmp(const point &a, const point &b){
-  return a.val > b.val;
+  return a.val > b.val; //>なら降順 
 }
 
 //区間[s,t]の和集合（整数の数）をとる vector<pair<ll,ll>> の要素がs,t

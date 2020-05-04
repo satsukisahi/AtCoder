@@ -3,6 +3,7 @@ priority_queue<ll> q;
 小さい方が優先
 priority_queue< ll, vector<ll>, greater<ll> > q;
 
+デバッグで見てもソートされていない
 
 q.push(val);
 q.pop();
@@ -15,3 +16,10 @@ q.size();
 要素AとBに対して、AとBの両方が奇数なら、値が小さい方が優先度が低い。
 auto c = [](ll l, ll r) { if (l % 2 == 0) return r % 2 != 0 || l >= r; else return r % 2 != 0 && l < r; };
 priority_queue<ll, vector<ll>, decltype(c)> q(c);
+
+構造体に使う場合
+bool operator< (const edge &a, const edge &b){
+    return a.cost > b.cost;
+};
+
+priority_queue<edge> q;
