@@ -8,6 +8,8 @@ vector<ll> v;
 bool inarea(ll x,ll y){
   return x >= 0 && y >= 0 && x < h && y < w ;
 }
+ll dx[4]={0,1,0,-1};
+ll dy[4]={1,0,-1,0};
 
 //構造体
 struct point {
@@ -21,6 +23,10 @@ struct point {
 bool cmp(const point &a, const point &b){
   return a.val > b.val; //>なら降順 
 }
+//オーバーロード setに自作構造体を使うときなどに
+bool operator< (const edge &a1, const edge &a2){
+    return a1.num < a2.num;
+};
 
 //区間[s,t]の和集合（整数の数）をとる vector<pair<ll,ll>> の要素がs,t
 sort(v.begin(),v.end());

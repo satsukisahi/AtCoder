@@ -5,6 +5,7 @@ typedef long long ll;
 ll ans = 0;
 ll n ;
 const ll INF = 1LL << 60; //MAX 9223372036854775807
+//2乗の木dp
 struct edge
 {
   ll to;
@@ -14,20 +15,22 @@ struct edge
 };
 void dfs(ll x, vector<vector<edge>> &g,vector<vector<ll>> &v, vector<bool> &see)
 {
-  //点xに対する処理
   see[x] = 1;
   for (auto p : g[x])
   {
     if (see[p.to])continue;
-    //進む辺に対する処理（これは木構造でオイラーツアーするために使う）
     dfs(p.to, g,v, see);
-    //戻る辺に対する処理
-    for (ll i = 1; i < n; i++)
-    {
-      
+    vector<ll> te;
+    rep(i,n){if(v[x][i]==INF)break; te.push_back(v[x][i]);}
+    rep(i,n){
+      bool en=0;
+      if(v[p.to][i]>p.cost){v[p.to][i]=p.cost;en=1;}
+      rep(j,te.size()){
+        v[x][i+j]=min(v[x][i+j],te[j]+v[p.to][i]);
+      }
+      if(en)break;
     }
   }
-  //点xの親に戻る時の処理
 }
 int main()
 {
@@ -42,7 +45,6 @@ rep(i, n-1)
 }
 vector<vector<ll>> v(n, vector<ll>(n,INF) );
 vector<bool> see(n);
-
 rep(i,n)v[i][0]=0;
 dfs(0,g,v,see);
 rep(i,n){

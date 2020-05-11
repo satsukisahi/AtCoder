@@ -108,6 +108,14 @@
 		],
 		"description": "2d-vector"
   },
+  "3d-vector": {
+		"prefix": "vec3",
+		"body": [
+      "vector<vector<vector<ll>>> ${1:v}(${2:n}, vector<vector<ll>>(${3:n}, vector<ll>(${4:n},0)));",
+      "$0"
+		],
+		"description": "2d-vector"
+  },
   "vector": {
 		"prefix": "vec",
 		"body": [
