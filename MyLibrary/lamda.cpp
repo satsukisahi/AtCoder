@@ -50,6 +50,8 @@ int main()
   //次に大きい整数
   auto krag = [](double krx) {double eps=1e-6;krx-=eps; if(krx>0)return (ll)krx+1LL;else return (ll)krx; };
 
+  //イテレータを一つ戻す　f(hoge.end())とかで使う
+  auto f = [](auto a) { a--;return a; };
   //mod複数掛け算
   auto modmul = [](auto... modx) {
     ll res = 1;
