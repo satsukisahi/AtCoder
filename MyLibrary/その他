@@ -42,11 +42,17 @@ for ((ll) bit = 0; bit < (1<<d); ++bit) {
 //各ビットを下から見ていく
   rep(j,d){
 //jビット目が1なら処理を行う
-    if(bit>>j&1){
+    if(bit>>j&1LL){
       todo;
     }
   }
 }
+//https://qiita.com/keymoon/items/6cf46473b5421bfe1d48
+//可逆なら毎回独立に構築せず差分更新可能
+//0は例外（更新位置が無いので）
+ll code=i^(i>>1);//i番目
+ll cha=__builtin_ctzll(j)//変更位置
+if(code>>cha &1LL){加算}else{減算}
 
 //グラフDFS
 void dfs(ll x, vector<vector<edge>> &g, vector<bool> &see)
